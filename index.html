@@ -103,7 +103,7 @@ a{color:var(--accent)}
     "label": "In progress — setup/communication phase",
     "tone": "warn"
   },
-  "targetOS": "macOS 26 until macOS 27's production build is ready (tentatively Oct 9)",
+  "targetOS": "macOS 27 we are currently on hold awaiting our production build to be ready.<br>see Open Questions",
   "scope": {
     "total": 123
   },
@@ -151,16 +151,12 @@ a{color:var(--accent)}
       "text": "Waiting on Geoff — emailed Sep 30 (cc Dionne) for the list of people with a Mac reserved or an upcoming replacement; asked for it by early next week (~Oct 5)."
     },
     {
-      "tone": "bad",
-      "text": "Oct 1 escalation (Dionne) is tomorrow — verify the manager list is ready; the 4 Macs that can't run 27 (1 can't run 26) need a replacement decision."
+      "tone": "warn",
+      "text": "Oct 16 escalation (Dionne or Phil) — verify the manager list is ready; the 4 Macs that can't run 27 (1 can't run 26) need a replacement decision."
     },
     {
       "tone": "warn",
-      "text": "Baseline partly set — 75 devices (RL - 158-2) vs 79 in the earlier Sequoia-lower-than-15.8 export; confirm which is \"total at start\", and get the new-builds total from IT Resources, before the Wednesday update."
-    },
-    {
-      "tone": "warn",
-      "text": "Target OS — per the macOS Compliance guidance, assume everything updates to macOS 26 until the macOS 27 production build is done (tentatively Oct 9); revisit the plan then. Still open: is 26.7 required, or does any 26.x count?"
+      "text": "Target OS — macOS 27 we are currently on hold awaiting our production macOS 27 build to be ready."
     }
   ],
   "timeline": [
@@ -200,17 +196,10 @@ a{color:var(--accent)}
       "owner": "Me"
     },
     {
-      "date": "2026-10-01",
-      "conf": "confirmed",
-      "done": false,
-      "event": "1st escalation email to managers",
-      "owner": "Dionne"
-    },
-    {
       "date": "2026-10-05",
       "conf": "target",
       "done": false,
-      "event": "Geoff's list requested \"by early next week\" — nudge if not received; cross-check against the 75-device list",
+      "event": "Geoff's list requested \"by early next week\"",
       "owner": "Me"
     },
     {
@@ -226,6 +215,13 @@ a{color:var(--accent)}
       "done": false,
       "event": "macOS 27 production build (new builds, rebuilds, upgrades) tentatively complete; until then everything targets macOS 26",
       "owner": ""
+    },
+    {
+      "date": "2026-10-16",
+      "conf": "confirmed",
+      "done": false,
+      "event": "1st escalation email to managers",
+      "owner": "Dionne"
     },
     {
       "date": "2026-11-01",
@@ -292,7 +288,7 @@ a{color:var(--accent)}
         },
         {
           "t": "Get baseline totals into Metrics",
-          "done": false
+          "done": true
         }
       ]
     },
@@ -397,7 +393,7 @@ a{color:var(--accent)}
         },
         {
           "t": "Clarify \"Golden Gate Project — Oct 6\"",
-          "done": false
+          "done": true
         },
         {
           "t": "Provide fleet model list → filled in Hardware Requirements fleet table (75 Macs)",
@@ -405,7 +401,7 @@ a{color:var(--accent)}
         },
         {
           "t": "Escalate the 14 Intel Macs to IT Resources / Phil for replacement planning — 1 cannot upgrade (iMac Pro 2017, [device]) + 13 macOS-26-max…",
-          "done": false
+          "done": true
         },
         {
           "t": "Patch 382 Tahoe Macs to 26.7 (none are on it yet; 26.7.1 also released Sep 29) — confirm whether 26.7 is a compliance requirement or only…",
