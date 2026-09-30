@@ -99,100 +99,375 @@ a{color:var(--accent)}
 {
   "updated": "2026-09-30",
   "deadline": "2026-12-01",
-  "status": { "label": "In progress — setup & communication phase", "tone": "warn" },
-  "targetOS": "macOS 26 until the macOS 27 production build is ready (tentatively Oct 9)",
-  "scope": { "total": 457, "sequoia": 75, "tahoeBelow267": 382, "appleSilicon": 443, "intelRun26": 13, "cannotRun26": 1 },
+  "status": {
+    "label": "In progress — setup/communication phase",
+    "tone": "warn"
+  },
+  "targetOS": "macOS 26 until macOS 27's production build is ready (tentatively Oct 9)",
+  "scope": {
+    "total": 457
+  },
   "fleet": {
     "asOf": "2026-09-29",
     "groups": [
-      { "name": "Sequoia 15.7.x (below 15.8)", "count": 75, "note": "Upgrade work under the macOS 26 target" },
-      { "name": "Tahoe 26.x (below 26.7)", "count": 382, "note": "0 on 26.7 yet — 326 on 26.6.2, 51 on 26.6.1, 5 older" }
+      {
+        "name": "Sequoia 15.7.x, below 15.8",
+        "short": "Sequoia",
+        "count": 75,
+        "note": "Upgrade work · 0 on 26.7+, 75 below"
+      },
+      {
+        "name": "Tahoe 26.x, below 26.7",
+        "short": "Tahoe",
+        "count": 382,
+        "note": "0 on 26.7+, 382 below"
+      }
     ],
     "eligibility": [
-      { "label": "Apple silicon — can run 26 and 27", "count": 443, "color": "var(--s1)" },
-      { "label": "Intel — macOS 26 max", "count": 13, "color": "var(--s3)" },
-      { "label": "Cannot run Tahoe (iMac Pro 2017)", "count": 1, "color": "var(--s4)" }
+      {
+        "label": "Apple silicon — can run 26 and 27",
+        "count": 443,
+        "color": "var(--s1)"
+      },
+      {
+        "label": "Intel — macOS 26 max",
+        "count": 13,
+        "color": "var(--s3)"
+      },
+      {
+        "label": "Cannot run Tahoe",
+        "count": 1,
+        "color": "var(--s4)"
+      }
     ]
   },
   "metrics": [
-    { "date": "2026-09-30", "upgradesDone": 0, "upgradesTotal": "75", "buildsDone": 0, "buildsTotal": "TBD", "notes": "Baseline week. Sequoia group only; 382 Tahoe Macs below 26.7 tracked separately. Builds total pending from IT Resources." }
+    {
+      "date": "2026-09-30",
+      "upgradesDone": 0,
+      "upgradesTotal": "75",
+      "buildsDone": 0,
+      "buildsTotal": "TBD",
+      "notes": "Sequoia group (158, 75 Macs, Jamf export Sep 29) — all still below 15.8. Separate: 382 Tahoe Macs below 26.7 (267), 0 on 26.7. See Weekly Update - 2026-09-30 (Draft)"
+    }
   ],
   "attention": [
-    { "tone": "bad",  "text": "First manager escalation goes out Thu Oct 1 (Dionne) — confirm the manager list is ready." },
-    { "tone": "warn", "text": "Waiting on Geoff for the list of people with a Mac reserved or upcoming replacement (asked Sep 30; follow up ~Oct 5)." },
-    { "tone": "warn", "text": "Baseline needs confirming: 75 vs 79 Sequoia devices, and whether the 382 Tahoe Macs count as work remaining." },
-    { "tone": "warn", "text": "New-builds total still needed from IT Resources for the weekly report." },
-    { "tone": "acc",  "text": "14 Intel Macs need replacement planning (1 cannot run Tahoe at all). Escalate to IT Resources / Phil." }
+    {
+      "tone": "warn",
+      "text": "Waiting on Geoff — emailed Sep 30 (cc Dionne) for the list of people with a Mac reserved or an upcoming replacement; asked for it by early next week (~Oct 5)."
+    },
+    {
+      "tone": "bad",
+      "text": "Oct 1 escalation (Dionne) is tomorrow — verify the manager list is ready; the 4 Macs that can't run 27 (1 can't run 26) need a replacement decision."
+    },
+    {
+      "tone": "warn",
+      "text": "Baseline partly set — 75 devices (RL - 158-2) vs 79 in the earlier Sequoia-lower-than-15.8 export; confirm which is \"total at start\", and get the new-builds total from IT Resources, before the Wednesday update."
+    },
+    {
+      "tone": "warn",
+      "text": "Target OS — per the macOS Compliance guidance, assume everything updates to macOS 26 until the macOS 27 production build is done (tentatively Oct 9); revisit the plan then. Still open: is 26.7 required, or does any 26.x count?"
+    }
   ],
   "timeline": [
-    { "date": "2026-09-01", "conf": "confirmed", "done": true,  "event": "Slack announcement and first email to non-compliant users; Service Desk briefed", "owner": "" },
-    { "date": "2026-09-15", "conf": "confirmed", "done": true,  "event": "2nd email: self-upgrade or schedule an assisted upgrade", "owner": "" },
-    { "date": "2026-09-30", "conf": "confirmed", "done": true,  "event": "First weekly update to Phil (every Wednesday, 3pm)", "owner": "Ryan" },
-    { "date": "2026-10-01", "conf": "confirmed", "done": false, "event": "1st escalation email to managers", "owner": "Dionne" },
-    { "date": "2026-10-05", "conf": "target",    "done": false, "event": "Follow up on Geoff's replacement / new-system list", "owner": "Ryan" },
-    { "date": "2026-10-06", "conf": "tbd",       "done": false, "event": "\"Golden Gate Project\" — scope to be clarified", "owner": "?" },
-    { "date": "2026-10-09", "conf": "target",    "done": false, "event": "macOS 27 production build tentatively ready (new builds, rebuilds, upgrades)", "owner": "" },
-    { "date": "2026-11-01", "conf": "confirmed", "done": false, "event": "2nd escalation email (falls on a Sunday — send date to decide)", "owner": "Phil" },
-    { "date": "2026-11-15", "conf": "confirmed", "done": false, "event": "Final escalation email (falls on a Sunday — send date to decide)", "owner": "Deb" },
-    { "date": null,         "conf": "tbd",       "done": false, "event": "Advance notice to Service Desk and non-compliant list before enforcement", "owner": "Ryan" },
-    { "date": null,         "conf": "tbd",       "done": false, "event": "Date/time to remove NAC certs (notify Sam W / Mark if not done in-house)", "owner": "Jamf admin" },
-    { "date": "2026-12-01", "conf": "confirmed", "done": false, "event": "DEADLINE — non-compliant devices lose NAC certificate", "owner": "" }
+    {
+      "date": "2026-09-01",
+      "conf": "confirmed",
+      "done": true,
+      "event": "Slack announcement in #macintosh-patches: new macOS available for self-service",
+      "owner": ""
+    },
+    {
+      "date": "2026-09-01",
+      "conf": "confirmed",
+      "done": true,
+      "event": "Email mac_upgrade group (non-compliant users) re: Dec 1 deadline + spreadsheet of impacted systems/users; brief Service Desk at 8:45 meeting + email ITSD_ITSS",
+      "owner": ""
+    },
+    {
+      "date": "2026-09-15",
+      "conf": "confirmed",
+      "done": true,
+      "event": "2nd email to mac_upgrade: self-upgrade or schedule assisted upgrade via Generic Request",
+      "owner": ""
+    },
+    {
+      "date": "2026-09-30",
+      "conf": "confirmed",
+      "done": false,
+      "event": "First weekly update to Phil, by 3pm (every Wednesday after)",
+      "owner": "Me"
+    },
+    {
+      "date": "2026-09-30",
+      "conf": "confirmed",
+      "done": true,
+      "event": "Emailed Geoff (cc Dionne) requesting list of people with a Mac reserved or an upcoming replacement",
+      "owner": "Me"
+    },
+    {
+      "date": "2026-10-01",
+      "conf": "confirmed",
+      "done": false,
+      "event": "1st escalation email to managers",
+      "owner": "Dionne"
+    },
+    {
+      "date": "2026-10-05",
+      "conf": "target",
+      "done": false,
+      "event": "Geoff's list requested \"by early next week\" — nudge if not received; cross-check against the 75-device list",
+      "owner": "Me"
+    },
+    {
+      "date": "2026-10-06",
+      "conf": "target",
+      "done": false,
+      "event": "\"Golden Gate Project\" (from handwritten notes — likely the macOS 27 effort; production build tentatively Oct 9; confirm)",
+      "owner": ""
+    },
+    {
+      "date": "2026-10-09",
+      "conf": "target",
+      "done": false,
+      "event": "macOS 27 production build (new builds, rebuilds, upgrades) tentatively complete; until then everything targets macOS 26",
+      "owner": ""
+    },
+    {
+      "date": "2026-11-01",
+      "conf": "confirmed",
+      "done": false,
+      "event": "2nd escalation email — lands on a Sunday; send Fri Oct 30 or Mon Nov 2?",
+      "owner": "Phil"
+    },
+    {
+      "date": "2026-11-15",
+      "conf": "confirmed",
+      "done": false,
+      "event": "Final escalation email — Sunday; send Fri Nov 13 or Mon Nov 16?",
+      "owner": "Deb"
+    },
+    {
+      "date": null,
+      "conf": "tbd",
+      "done": false,
+      "event": "Advance notice to Service Desk + non-compliant list before enforcement",
+      "owner": "Me"
+    },
+    {
+      "date": null,
+      "conf": "tbd",
+      "done": false,
+      "event": "Date/time to remove NAC certs (notify Sam W / Mark if not doing it myself)",
+      "owner": "Jamf admin"
+    },
+    {
+      "date": null,
+      "conf": "tbd",
+      "done": false,
+      "event": "Re-deploy NAC profile as devices become compliant (fallback: KB0014057)",
+      "owner": ""
+    },
+    {
+      "date": "2026-12-01",
+      "conf": "confirmed",
+      "done": false,
+      "event": "Upgrade deadline → NAC cert removal for non-compliant devices",
+      "owner": ""
+    }
   ],
   "tasks": [
-    { "group": "Project initiation", "items": [
-      { "t": "Create/confirm project spreadsheet", "done": false },
-      { "t": "Create Jamf Smart Group(s) to monitor upgrade progress", "done": false },
-      { "t": "Identify systems that cannot upgrade; escalate to IT Resources + Phil", "done": false },
-      { "t": "Identify systems already slated for replacement; record count + builds", "done": false },
-      { "t": "Get baseline totals into the weekly metrics", "done": false }
-    ]},
-    { "group": "Communication prep", "items": [
-      { "t": "Confirm macOS FAQ Innerspace page is published", "done": false },
-      { "t": "Draft initial notification email", "done": false }
-    ]},
-    { "group": "Staff communication", "items": [
-      { "t": "Sep 1 — Slack announcement", "done": true },
-      { "t": "Sep 1 — Email mac_upgrade group with impacted-systems spreadsheet", "done": true },
-      { "t": "Inform Service Desk and ITSD_ITSS", "done": true },
-      { "t": "Sep 15 — 2nd reminder email", "done": true },
-      { "t": "Oct 1 — 1st escalation to managers", "done": false },
-      { "t": "Nov 1 — 2nd escalation", "done": false },
-      { "t": "Nov 15 — Final escalation", "done": false }
-    ]},
-    { "group": "Kickoff follow-ups", "items": [
-      { "t": "Provide fleet model list (75 Macs)", "done": true },
-      { "t": "Geoff: list of users getting new systems + manager info", "done": false },
-      { "t": "Phil: enter data; create a counter in Jamf", "done": false },
-      { "t": "Clarify \"Golden Gate Project — Oct 6\"", "done": false },
-      { "t": "Escalate the 14 Intel Macs for replacement planning", "done": false },
-      { "t": "Patch 382 Tahoe Macs to 26.7 (if 26.7 is required)", "done": false },
-      { "t": "Decide compliance target (26.7 vs 27)", "done": false },
-      { "t": "Cross-check device list against Geoff's list", "done": false }
-    ]},
-    { "group": "Enforcement", "items": [
-      { "t": "Notify Service Desk of enforcement; send non-compliant device list", "done": false },
-      { "t": "Update mac_upgrade group with remaining staff and their managers", "done": false },
-      { "t": "After deadline: remove NAC certificate via Smart Group", "done": false },
-      { "t": "Email mac_upgrade: access removed", "done": false },
-      { "t": "Re-deploy NAC profile as devices become compliant", "done": false }
-    ]},
-    { "group": "Reporting", "items": [
-      { "t": "Weekly update to Phil — every Wednesday by 3pm", "done": false },
-      { "t": "Confirm whether daily updates to Dionne + Phil are still expected", "done": false }
-    ]}
+    {
+      "group": "Project initiation",
+      "items": [
+        {
+          "t": "Create/confirm Project Spreadsheet",
+          "done": false
+        },
+        {
+          "t": "Create Jamf Smart Group for devices needing OS upgrade + download (example: macOS Sequoia 15.6.0 or Lower) — used to monitor progress",
+          "done": false
+        },
+        {
+          "t": "Identify systems that cannot upgrade → escalate list to IT Resources + Phil Broome for replacement/decommission",
+          "done": false
+        },
+        {
+          "t": "With IT Resources, identify systems already slated for replacement; record count + builds (reported throughout the project)",
+          "done": false
+        },
+        {
+          "t": "Get baseline totals into Metrics",
+          "done": false
+        }
+      ]
+    },
+    {
+      "group": "Communication prep",
+      "items": [
+        {
+          "t": "With the macOS project Service Owner, confirm the macOS FAQ Innerspace page is published",
+          "done": false
+        },
+        {
+          "t": "Draft initial notification email in ITSD Draft Notifications Home — template: POAM_macOS_upgrade",
+          "done": false
+        }
+      ]
+    },
+    {
+      "group": "Staff communication",
+      "items": [
+        {
+          "t": "Slack announcement (#macintosh-patches)",
+          "done": true
+        },
+        {
+          "t": "Email mac_upgrade after draft approval (include impacted-systems spreadsheet)",
+          "done": true
+        },
+        {
+          "t": "Inform Service Desk (8:45 meeting) + email ITSD_ITSS",
+          "done": true
+        },
+        {
+          "t": "2nd reminder email to mac_upgrade",
+          "done": true
+        },
+        {
+          "t": "1st escalation to managers (Dionne)",
+          "done": false
+        },
+        {
+          "t": "2nd escalation (Phil)",
+          "done": false
+        },
+        {
+          "t": "Final escalation (Deb)",
+          "done": false
+        }
+      ]
+    },
+    {
+      "group": "Enforcement",
+      "items": [
+        {
+          "t": "Inform Service Desk of impending enforcement; send list of non-compliant devices",
+          "done": false
+        },
+        {
+          "t": "Note: Duo Desktop restricts SSO for non-compliant devices (N-1) — automatic, no action",
+          "done": false
+        },
+        {
+          "t": "Update mac_upgrade group with remaining non-compliant staff and their managers",
+          "done": false
+        },
+        {
+          "t": "After deadline: Jamf admin removes NAC certificate via Smart Group (or notify Sam W / Mark of date/time)",
+          "done": false
+        },
+        {
+          "t": "Email mac_upgrade: access removed — template: Non_compliant_restore_email",
+          "done": false
+        },
+        {
+          "t": "As devices become compliant: re-deploy Network Access Control profile (failure → KB0014057)",
+          "done": false
+        }
+      ]
+    },
+    {
+      "group": "Reporting",
+      "items": [
+        {
+          "t": "Every Wednesday by 3pm (changed from Friday) — email Phil Broome + team lead: upgrades completed / total at start;",
+          "done": false
+        },
+        {
+          "t": "Daily update emails to Dionne + Phil (from Sep 22 kickoff notes) — confirm still expected",
+          "done": false
+        }
+      ]
+    },
+    {
+      "group": "From kickoff meeting",
+      "items": [
+        {
+          "t": "Geoff: provide list of users getting new systems (to remove from upgrade list) + user/manager info for escalations",
+          "done": false
+        },
+        {
+          "t": "Phil: enter data; create a counter in Jamf",
+          "done": false
+        },
+        {
+          "t": "Clarify \"Golden Gate Project — Oct 6\"",
+          "done": false
+        },
+        {
+          "t": "Provide fleet model list → filled in Hardware Requirements fleet table (75 Macs)",
+          "done": true
+        },
+        {
+          "t": "Escalate the 14 Intel Macs to IT Resources / Phil for replacement planning — 1 cannot upgrade (iMac Pro 2017, [device]) + 13 macOS-26-max…",
+          "done": false
+        },
+        {
+          "t": "Patch 382 Tahoe Macs to 26.7 (none are on it yet; 26.7.1 also released Sep 29) — confirm whether 26.7 is a compliance requirement or only…",
+          "done": false
+        },
+        {
+          "t": "Decide compliance target (26.7 vs 27) — 4 Macs can't run 27",
+          "done": false
+        },
+        {
+          "t": "Cross-check the 75-device list against Geoff's \"getting new systems\" list",
+          "done": false
+        }
+      ]
+    }
   ],
   "decisions": [
-    { "date": "2026-09-30", "what": "Target is macOS 26 until the macOS 27 production build is ready (tentatively Oct 9)", "why": "Project guidance in \"macOS Compliance\"" },
-    { "date": "2026-09-30", "what": "Jamf Smart Group reports stored as <group>_MMDD.xlsx; superseded reports archived", "why": "One drop location; date suffix keeps exports distinct" },
-    { "date": "2026-09-29", "what": "Weekly update is due Wednesdays by 3pm (KB says Friday)", "why": "Direction from Ryan" },
-    { "date": "2026-09-29", "what": "Track OS eligibility per computer by Model Identifier against Apple's compatibility pages", "why": "Unambiguous; new models added in one place" }
+    {
+      "date": "2026-09-30",
+      "what": "Jamf Smart Group reports are stored in Attachments/Smart Groups/, named <group>_MMDD.xlsx; superseded reports go to Smart Groups/Archive/",
+      "why": "One place to drop new exports; the date suffix keeps successive exports of the same group distinct"
+    },
+    {
+      "date": "2026-09-30",
+      "what": "Until the macOS 27 production build is ready (tentative Oct 9), the target is macOS 26",
+      "why": "Guidance in the project doc macOS Compliance"
+    },
+    {
+      "date": "2026-09-29",
+      "what": "Track OS eligibility per computer by Model Identifier against Apple's compatibility pages (26 and 27), via a lookup tab in the fleet workbook",
+      "why": "Identifier is unambiguous; new models get added in one place and all counts recalc"
+    },
+    {
+      "date": "2026-09-29",
+      "what": "Weekly update to Phil is due Wednesdays by 3pm, not Fridays as the KB states",
+      "why": "Direction from Ryan; KB text left as-is in the Reference section"
+    },
+    {
+      "date": "2026-09-29",
+      "what": "Project gets its own folder: 02 Tickets/macOS Upgrade Project/ (primary note + Attachments/ + supporting notes)",
+      "why": "Keep all project files together; stays under 02 Tickets per the #work convention"
+    },
+    {
+      "date": "2026-09-29",
+      "what": "Reorganized KB0015169 note into a living dashboard; original preserved in the Reference section below and in _Backups",
+      "why": "Make this the single place to see status, dates, and next actions"
+    }
   ],
   "questions": [
-    "What is the compliance target after Oct 9 — 26.7, 27, or a mix by hardware? Is 26.7 specifically required, or does any 26.x count?",
-    "What happens on Oct 6 (\"Golden Gate Project\")?",
-    "Sunday escalations (Nov 1, Nov 15): send the prior Friday or the following Monday?",
-    "Which count is the baseline — 75 or 79 Sequoia devices — and do the 382 Tahoe Macs count as remaining work?",
-    "Are daily update emails to Dionne + Phil still expected?"
+    "Target OS version",
+    "\"Golden Gate Project — Oct 6\"",
+    "Weekend escalation dates (Nov 1, Nov 15 are Sundays)",
+    "What does \"~120\" refer to? (device count?)",
+    "Daily updates (Dionne + Phil)",
+    "75 vs 79 devices",
+    "Compliance definition / scope"
   ],
   "links": []
 }
@@ -254,7 +529,7 @@ a{color:var(--accent)}
   </div>
 </section>
 
-<footer>Static page generated from the project's Obsidian note. No device names, serials, or user names are published here.</footer>
+<footer>Static status page maintained from the project's Obsidian note. No device names or serial numbers are published; first names of project contacts appear.</footer>
 </div>
 
 <script>
@@ -284,7 +559,7 @@ a{color:var(--accent)}
   var doneCt = allItems.filter(function(i){return i.done}).length;
   var kp = [
     {label:'Days to deadline', num: daysLeft>=0? daysLeft : 'Past', note: fmtLong(D.deadline)},
-    {label:'Macs in scope', num: D.scope.total, note: D.scope.sequoia+' Sequoia · '+D.scope.tahoeBelow267+' Tahoe below 26.7'},
+    {label:'Macs in scope', num: D.scope.total, note: D.fleet.groups.map(function(g){return g.count+' '+(g.short||g.name)}).join(' · ')},
     {label:'Upgrades done', num: latest.upgradesDone+' / '+latest.upgradesTotal, note:'New builds: '+latest.buildsDone+' / '+latest.buildsTotal},
     {label:'Next up', num: upNext? fmt(upNext.date) : '—', note: upNext? upNext.event : 'Nothing scheduled', small:true}
   ];
