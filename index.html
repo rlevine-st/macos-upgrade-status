@@ -111,8 +111,8 @@ a{color:var(--accent)}
     "asOf": "2026-09-30",
     "groups": [
       {
-        "name": "Sequoia 15.7.x, below 15.8",
-        "short": "Sequoia",
+        "name": "all Macs on macOS 15",
+        "short": "all",
         "count": 123,
         "note": "Upgrade work · 0 on 27.0+, 123 below"
       }
@@ -142,7 +142,7 @@ a{color:var(--accent)}
       "upgradesTotal": "123",
       "buildsDone": 0,
       "buildsTotal": "13",
-      "notes": "Group 158 redefined as all Macs on macOS 15 (123; Jamf report Sep 30): 112 → macOS 27, 7 Intel macOS 26-max, 4 cannot upgrade. Workbook: macOS Upgrade Path Summary (2026-09-30).xlsx."
+      "notes": "Group 158 redefined as all Macs on macOS 15 (123; Jamf report Sep 30): 112 → macOS 27, 11 Intel can't run 27. Workbook: macOS Upgrade Path Summary (2026-09-30).xlsx."
     }
   ],
   "attention": [
@@ -152,7 +152,7 @@ a{color:var(--accent)}
     },
     {
       "tone": "warn",
-      "text": "Oct 16 escalation (Dionne or Phil) — verify the manager list is ready; the 4 Macs that can't run 27 (1 can't run 26) need a replacement decision."
+      "text": "Oct 16 escalation (Dionne or Phil) — verify the manager list is ready; the 11 Intel Macs that can't run macOS 27 need a replacement decision."
     },
     {
       "tone": "warn",
@@ -213,7 +213,7 @@ a{color:var(--accent)}
       "date": "2026-10-09",
       "conf": "target",
       "done": false,
-      "event": "macOS 27 production build (new builds, rebuilds, upgrades) tentatively complete; until then everything targets macOS 26",
+      "event": "macOS 27 production build (new builds, rebuilds, upgrades) tentatively complete; upgrades are on hold until then",
       "owner": ""
     },
     {
@@ -396,24 +396,16 @@ a{color:var(--accent)}
           "done": true
         },
         {
-          "t": "Provide fleet model list → filled in Hardware Requirements fleet table (75 Macs)",
+          "t": "Provide fleet model list → filled in Hardware Requirements fleet table (123 Macs)",
           "done": true
         },
         {
-          "t": "Escalate the 14 Intel Macs to IT Resources / Phil for replacement planning — 1 cannot upgrade (iMac Pro 2017, [device]) + 13 macOS-26-max…",
+          "t": "Escalate the 11 Intel Macs that can't run macOS 27 to IT Resources / Phil for replacement planning (4 older: 3× iMac Pro 2017, 1× MBP 15\"…",
           "done": true
         },
         {
-          "t": "Patch 382 Tahoe Macs to 26.7 (none are on it yet; 26.7.1 also released Sep 29) — confirm whether 26.7 is a compliance requirement or only…",
-          "done": false
-        },
-        {
-          "t": "Decide compliance target (26.7 vs 27) — 4 Macs can't run 27",
-          "done": false
-        },
-        {
-          "t": "Cross-check the 75-device list against Geoff's \"getting new systems\" list",
-          "done": false
+          "t": "Cross-check the device list against Geoff's \"getting new systems\" list",
+          "done": true
         }
       ]
     }
@@ -426,12 +418,12 @@ a{color:var(--accent)}
     },
     {
       "date": "2026-09-30",
-      "what": "Until the macOS 27 production build is ready (tentative Oct 9), the target is macOS 26",
-      "why": "Guidance in the project doc macOS Compliance"
+      "what": "Target is macOS 27; upgrades are on hold until the production build is ready (tentatively Oct 9)",
+      "why": "Production build not ready yet; scope is only Macs going from macOS 15 to 27"
     },
     {
       "date": "2026-09-29",
-      "what": "Track OS eligibility per computer by Model Identifier against Apple's compatibility pages (26 and 27), via a lookup tab in the fleet workbook",
+      "what": "Track OS eligibility per computer by Model Identifier against Apple's compatibility pages (macOS 27), via a lookup tab in the fleet workbook",
       "why": "Identifier is unambiguous; new models get added in one place and all counts recalc"
     },
     {
@@ -451,13 +443,11 @@ a{color:var(--accent)}
     }
   ],
   "questions": [
-    "Target OS version",
+    "macOS 27 production build date",
     "\"Golden Gate Project — Oct 6\"",
     "Weekend escalation dates (Nov 1, Nov 15 are Sundays)",
     "What does \"~120\" refer to? (device count?)",
-    "Daily updates (Dionne + Phil)",
-    "75 vs 79 devices",
-    "Compliance definition / scope"
+    "Daily updates (Dionne + Phil)"
   ],
   "links": []
 }
