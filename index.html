@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>macOS Upgrade Project — Status</title>
+<style>
+:root{
+  --bg:#f6f7f9; --card:#fff; --ink:#1b1f24; --muted:#5b6672; --line:#e3e7ec;
+  --accent:#2f6fed; --ok:#1f9d55; --warn:#d98a00; --bad:#d64545; --tbd:#8a94a0;
+  --ok-bg:#e6f5ec; --warn-bg:#fdf1d8; --bad-bg:#fbe7e7; --acc-bg:#e8effd; --tbd-bg:#eef0f3;
+  --s1:#2f6fed; --s2:#7aa5f5; --s3:#d98a00; --s4:#d64545;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0f1318; --card:#171c23; --ink:#e8ecf1; --muted:#98a3b0; --line:#2a323c;
+    --accent:#6c9bff; --ok:#48c47c; --warn:#f0b13a; --bad:#f07070; --tbd:#8a94a0;
+    --ok-bg:#12281c; --warn-bg:#2c2412; --bad-bg:#2e1717; --acc-bg:#16233d; --tbd-bg:#20262e;
+    --s1:#6c9bff; --s2:#3f6bc4; --s3:#f0b13a; --s4:#f07070;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0f1318; --card:#171c23; --ink:#e8ecf1; --muted:#98a3b0; --line:#2a323c;
+  --accent:#6c9bff; --ok:#48c47c; --warn:#f0b13a; --bad:#f07070; --tbd:#8a94a0;
+  --ok-bg:#12281c; --warn-bg:#2c2412; --bad-bg:#2e1717; --acc-bg:#16233d; --tbd-bg:#20262e;
+  --s1:#6c9bff; --s2:#3f6bc4; --s3:#f0b13a; --s4:#f07070;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.wrap{max-width:1040px;margin:0 auto;padding:24px 16px 64px}
+header{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-end;justify-content:space-between;margin-bottom:20px}
+h1{font-size:24px;margin:0 0 4px;letter-spacing:-.01em}
+.sub{color:var(--muted);font-size:13px}
+.pill{display:inline-block;padding:2px 10px;border-radius:999px;font-size:12px;font-weight:600;white-space:nowrap}
+.pill.ok{background:var(--ok-bg);color:var(--ok)} .pill.warn{background:var(--warn-bg);color:var(--warn)}
+.pill.bad{background:var(--bad-bg);color:var(--bad)} .pill.acc{background:var(--acc-bg);color:var(--accent)}
+.pill.tbd{background:var(--tbd-bg);color:var(--muted)}
+button.theme{background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:6px 10px;cursor:pointer;font:inherit;font-size:13px}
+.grid{display:grid;gap:16px}
+.kpis{grid-template-columns:repeat(4,1fr);margin-bottom:16px}
+.two{grid-template-columns:1fr 1fr}
+@media (max-width:820px){.kpis{grid-template-columns:1fr 1fr}.two{grid-template-columns:1fr}}
+@media (max-width:420px){.kpis{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;min-width:0}
+.card h2{font-size:14px;margin:0 0 12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+section{margin-top:16px}
+.kpi .label{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.kpi .num{font-size:32px;font-weight:700;letter-spacing:-.02em;line-height:1.2;margin-top:4px;font-variant-numeric:tabular-nums}
+.kpi .note{font-size:13px;color:var(--muted);margin-top:2px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{text-align:left;padding:8px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.05em}
+tr:last-child td{border-bottom:0}
+.tablewrap{overflow-x:auto}
+.num-col{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar{display:flex;height:18px;border-radius:6px;overflow:hidden;background:var(--tbd-bg);margin:6px 0 10px}
+.bar span{display:block;height:100%}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13px;color:var(--muted)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.prog{height:8px;background:var(--tbd-bg);border-radius:6px;overflow:hidden}
+.prog>span{display:block;height:100%;background:var(--ok)}
+.row{display:flex;justify-content:space-between;gap:12px;font-size:14px;margin:12px 0 6px}
+.tl{list-style:none;margin:0;padding:0}
+.tl li{display:grid;grid-template-columns:86px 1fr auto;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);align-items:start}
+.tl li:last-child{border-bottom:0}
+.tl .d{font-weight:600;font-variant-numeric:tabular-nums}
+.tl .d small{display:block;font-weight:400;color:var(--muted);font-size:12px}
+.tl .who{color:var(--muted);font-size:13px}
+.tl li.done .t{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--line)}
+.tl li.next{background:var(--acc-bg);margin:0 -10px;padding:10px;border-radius:8px;border-bottom:0}
+@media (max-width:560px){.tl li{grid-template-columns:70px 1fr}.tl li .pill{grid-column:2;justify-self:start}}
+ul.plain{margin:0;padding-left:18px} ul.plain li{margin:6px 0}
+.dec td:first-child{white-space:nowrap;color:var(--muted)}
+.tasks details{border-top:1px solid var(--line);padding:10px 0}
+.tasks details:first-of-type{border-top:0}
+.tasks summary{cursor:pointer;display:flex;justify-content:space-between;gap:12px;font-weight:600}
+.tasks ul{list-style:none;margin:8px 0 0;padding:0}
+.tasks li{padding:3px 0 3px 26px;position:relative;font-size:14px}
+.tasks li::before{content:"";position:absolute;left:2px;top:7px;width:14px;height:14px;border:2px solid var(--tbd);border-radius:4px}
+.tasks li.done{color:var(--muted)}
+.tasks li.done::before{background:var(--ok);border-color:var(--ok)}
+.tasks li.done::after{content:"";position:absolute;left:7px;top:9px;width:4px;height:8px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
+footer{margin-top:28px;color:var(--muted);font-size:12px;text-align:center}
+a{color:var(--accent)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- =====================================================================
+     EDIT ONLY THIS BLOCK. Everything below renders from DATA.
+     Dates are ISO (YYYY-MM-DD). Days-to-deadline and "next up" are computed
+     from the viewer's clock. Weekly routine: add a metrics row, tick tasks,
+     update `updated`, adjust timeline/attention, commit + push.
+     ===================================================================== -->
+<script id="data" type="application/json">
+{
+  "updated": "2026-09-30",
+  "deadline": "2026-12-01",
+  "status": { "label": "In progress — setup & communication phase", "tone": "warn" },
+  "targetOS": "macOS 26 until the macOS 27 production build is ready (tentatively Oct 9)",
+  "scope": { "total": 457, "sequoia": 75, "tahoeBelow267": 382, "appleSilicon": 443, "intelRun26": 13, "cannotRun26": 1 },
+  "fleet": {
+    "asOf": "2026-09-29",
+    "groups": [
+      { "name": "Sequoia 15.7.x (below 15.8)", "count": 75, "note": "Upgrade work under the macOS 26 target" },
+      { "name": "Tahoe 26.x (below 26.7)", "count": 382, "note": "0 on 26.7 yet — 326 on 26.6.2, 51 on 26.6.1, 5 older" }
+    ],
+    "eligibility": [
+      { "label": "Apple silicon — can run 26 and 27", "count": 443, "color": "var(--s1)" },
+      { "label": "Intel — macOS 26 max", "count": 13, "color": "var(--s3)" },
+      { "label": "Cannot run Tahoe (iMac Pro 2017)", "count": 1, "color": "var(--s4)" }
+    ]
+  },
+  "metrics": [
+    { "date": "2026-09-30", "upgradesDone": 0, "upgradesTotal": "75", "buildsDone": 0, "buildsTotal": "TBD", "notes": "Baseline week. Sequoia group only; 382 Tahoe Macs below 26.7 tracked separately. Builds total pending from IT Resources." }
+  ],
+  "attention": [
+    { "tone": "bad",  "text": "First manager escalation goes out Thu Oct 1 (Dionne) — confirm the manager list is ready." },
+    { "tone": "warn", "text": "Waiting on Geoff for the list of people with a Mac reserved or upcoming replacement (asked Sep 30; follow up ~Oct 5)." },
+    { "tone": "warn", "text": "Baseline needs confirming: 75 vs 79 Sequoia devices, and whether the 382 Tahoe Macs count as work remaining." },
+    { "tone": "warn", "text": "New-builds total still needed from IT Resources for the weekly report." },
+    { "tone": "acc",  "text": "14 Intel Macs need replacement planning (1 cannot run Tahoe at all). Escalate to IT Resources / Phil." }
+  ],
+  "timeline": [
+    { "date": "2026-09-01", "conf": "confirmed", "done": true,  "event": "Slack announcement and first email to non-compliant users; Service Desk briefed", "owner": "" },
+    { "date": "2026-09-15", "conf": "confirmed", "done": true,  "event": "2nd email: self-upgrade or schedule an assisted upgrade", "owner": "" },
+    { "date": "2026-09-30", "conf": "confirmed", "done": true,  "event": "First weekly update to Phil (every Wednesday, 3pm)", "owner": "Ryan" },
+    { "date": "2026-10-01", "conf": "confirmed", "done": false, "event": "1st escalation email to managers", "owner": "Dionne" },
+    { "date": "2026-10-05", "conf": "target",    "done": false, "event": "Follow up on Geoff's replacement / new-system list", "owner": "Ryan" },
+    { "date": "2026-10-06", "conf": "tbd",       "done": false, "event": "\"Golden Gate Project\" — scope to be clarified", "owner": "?" },
+    { "date": "2026-10-09", "conf": "target",    "done": false, "event": "macOS 27 production build tentatively ready (new builds, rebuilds, upgrades)", "owner": "" },
+    { "date": "2026-11-01", "conf": "confirmed", "done": false, "event": "2nd escalation email (falls on a Sunday — send date to decide)", "owner": "Phil" },
+    { "date": "2026-11-15", "conf": "confirmed", "done": false, "event": "Final escalation email (falls on a Sunday — send date to decide)", "owner": "Deb" },
+    { "date": null,         "conf": "tbd",       "done": false, "event": "Advance notice to Service Desk and non-compliant list before enforcement", "owner": "Ryan" },
+    { "date": null,         "conf": "tbd",       "done": false, "event": "Date/time to remove NAC certs (notify Sam W / Mark if not done in-house)", "owner": "Jamf admin" },
+    { "date": "2026-12-01", "conf": "confirmed", "done": false, "event": "DEADLINE — non-compliant devices lose NAC certificate", "owner": "" }
+  ],
+  "tasks": [
+    { "group": "Project initiation", "items": [
+      { "t": "Create/confirm project spreadsheet", "done": false },
+      { "t": "Create Jamf Smart Group(s) to monitor upgrade progress", "done": false },
+      { "t": "Identify systems that cannot upgrade; escalate to IT Resources + Phil", "done": false },
+      { "t": "Identify systems already slated for replacement; record count + builds", "done": false },
+      { "t": "Get baseline totals into the weekly metrics", "done": false }
+    ]},
+    { "group": "Communication prep", "items": [
+      { "t": "Confirm macOS FAQ Innerspace page is published", "done": false },
+      { "t": "Draft initial notification email", "done": false }
+    ]},
+    { "group": "Staff communication", "items": [
+      { "t": "Sep 1 — Slack announcement", "done": true },
+      { "t": "Sep 1 — Email mac_upgrade group with impacted-systems spreadsheet", "done": true },
+      { "t": "Inform Service Desk and ITSD_ITSS", "done": true },
+      { "t": "Sep 15 — 2nd reminder email", "done": true },
+      { "t": "Oct 1 — 1st escalation to managers", "done": false },
+      { "t": "Nov 1 — 2nd escalation", "done": false },
+      { "t": "Nov 15 — Final escalation", "done": false }
+    ]},
+    { "group": "Kickoff follow-ups", "items": [
+      { "t": "Provide fleet model list (75 Macs)", "done": true },
+      { "t": "Geoff: list of users getting new systems + manager info", "done": false },
+      { "t": "Phil: enter data; create a counter in Jamf", "done": false },
+      { "t": "Clarify \"Golden Gate Project — Oct 6\"", "done": false },
+      { "t": "Escalate the 14 Intel Macs for replacement planning", "done": false },
+      { "t": "Patch 382 Tahoe Macs to 26.7 (if 26.7 is required)", "done": false },
+      { "t": "Decide compliance target (26.7 vs 27)", "done": false },
+      { "t": "Cross-check device list against Geoff's list", "done": false }
+    ]},
+    { "group": "Enforcement", "items": [
+      { "t": "Notify Service Desk of enforcement; send non-compliant device list", "done": false },
+      { "t": "Update mac_upgrade group with remaining staff and their managers", "done": false },
+      { "t": "After deadline: remove NAC certificate via Smart Group", "done": false },
+      { "t": "Email mac_upgrade: access removed", "done": false },
+      { "t": "Re-deploy NAC profile as devices become compliant", "done": false }
+    ]},
+    { "group": "Reporting", "items": [
+      { "t": "Weekly update to Phil — every Wednesday by 3pm", "done": false },
+      { "t": "Confirm whether daily updates to Dionne + Phil are still expected", "done": false }
+    ]}
+  ],
+  "decisions": [
+    { "date": "2026-09-30", "what": "Target is macOS 26 until the macOS 27 production build is ready (tentatively Oct 9)", "why": "Project guidance in \"macOS Compliance\"" },
+    { "date": "2026-09-30", "what": "Jamf Smart Group reports stored as <group>_MMDD.xlsx; superseded reports archived", "why": "One drop location; date suffix keeps exports distinct" },
+    { "date": "2026-09-29", "what": "Weekly update is due Wednesdays by 3pm (KB says Friday)", "why": "Direction from Ryan" },
+    { "date": "2026-09-29", "what": "Track OS eligibility per computer by Model Identifier against Apple's compatibility pages", "why": "Unambiguous; new models added in one place" }
+  ],
+  "questions": [
+    "What is the compliance target after Oct 9 — 26.7, 27, or a mix by hardware? Is 26.7 specifically required, or does any 26.x count?",
+    "What happens on Oct 6 (\"Golden Gate Project\")?",
+    "Sunday escalations (Nov 1, Nov 15): send the prior Friday or the following Monday?",
+    "Which count is the baseline — 75 or 79 Sequoia devices — and do the 382 Tahoe Macs count as remaining work?",
+    "Are daily update emails to Dionne + Phil still expected?"
+  ],
+  "links": []
+}
+</script>
+<!-- ===================================================================== -->
+
+<header>
+  <div>
+    <h1>macOS Upgrade Project</h1>
+    <div class="sub">POAM compliance · <span id="updated"></span></div>
+  </div>
+  <div style="display:flex;gap:10px;align-items:center">
+    <span id="statusPill" class="pill"></span>
+    <button class="theme" id="themeBtn" type="button" aria-label="Toggle theme">Theme</button>
+  </div>
+</header>
+
+<div class="grid kpis" id="kpis"></div>
+
+<div class="card" id="attention"><h2>Needs attention</h2><ul class="plain" id="attList"></ul></div>
+
+<section class="grid two">
+  <div class="card">
+    <h2>Fleet in scope</h2>
+    <div id="fleet"></div>
+  </div>
+  <div class="card">
+    <h2>Task progress</h2>
+    <div id="overall"></div>
+  </div>
+</section>
+
+<section class="card">
+  <h2>Weekly metrics <span class="sub" style="text-transform:none;letter-spacing:0">· updated Wednesdays</span></h2>
+  <div class="tablewrap"><table id="metrics"></table></div>
+</section>
+
+<section class="card">
+  <h2>Timeline</h2>
+  <div class="sub" style="margin:-4px 0 8px">
+    <span class="pill ok">confirmed</span> <span class="pill acc">target</span> <span class="pill tbd">to be determined</span>
+  </div>
+  <ul class="tl" id="timeline"></ul>
+</section>
+
+<section class="card tasks">
+  <h2>Task tracker</h2>
+  <div id="tasks"></div>
+</section>
+
+<section class="grid two">
+  <div class="card">
+    <h2>Decisions</h2>
+    <div class="tablewrap"><table class="dec" id="decisions"></table></div>
+  </div>
+  <div class="card">
+    <h2>Open questions</h2>
+    <ul class="plain" id="questions"></ul>
+  </div>
+</section>
+
+<footer>Static page generated from the project's Obsidian note. No device names, serials, or user names are published here.</footer>
+</div>
+
+<script>
+(function(){
+  var D = JSON.parse(document.getElementById('data').textContent);
+  var $ = function(id){return document.getElementById(id)};
+  var esc = function(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})};
+  var MON = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var DOW = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  function parse(s){var p=s.split('-');return new Date(+p[0],+p[1]-1,+p[2])}
+  function today(){var n=new Date();return new Date(n.getFullYear(),n.getMonth(),n.getDate())}
+  function fmt(s){var d=parse(s);return MON[d.getMonth()]+' '+d.getDate()}
+  function fmtLong(s){var d=parse(s);return DOW[d.getDay()]+', '+MON[d.getMonth()]+' '+d.getDate()+', '+d.getFullYear()}
+  function daysBetween(a,b){return Math.round((b-a)/86400000)}
+  function pct(n,t){return t? Math.round(n/t*1000)/10 : 0}
+
+  $('updated').textContent = 'Last updated ' + fmtLong(D.updated);
+  var sp = $('statusPill'); sp.textContent = D.status.label; sp.className = 'pill ' + D.status.tone;
+
+  // KPIs
+  var t0 = today(), dl = parse(D.deadline);
+  var daysLeft = daysBetween(t0, dl);
+  var latest = D.metrics[D.metrics.length-1];
+  var upNext = D.timeline.filter(function(e){return e.date && !e.done && parse(e.date)>=t0})
+                         .sort(function(a,b){return parse(a.date)-parse(b.date)})[0];
+  var allItems = []; D.tasks.forEach(function(g){allItems = allItems.concat(g.items)});
+  var doneCt = allItems.filter(function(i){return i.done}).length;
+  var kp = [
+    {label:'Days to deadline', num: daysLeft>=0? daysLeft : 'Past', note: fmtLong(D.deadline)},
+    {label:'Macs in scope', num: D.scope.total, note: D.scope.sequoia+' Sequoia · '+D.scope.tahoeBelow267+' Tahoe below 26.7'},
+    {label:'Upgrades done', num: latest.upgradesDone+' / '+latest.upgradesTotal, note:'New builds: '+latest.buildsDone+' / '+latest.buildsTotal},
+    {label:'Next up', num: upNext? fmt(upNext.date) : '—', note: upNext? upNext.event : 'Nothing scheduled', small:true}
+  ];
+  $('kpis').innerHTML = kp.map(function(k){
+    return '<div class="card kpi"><div class="label">'+esc(k.label)+'</div><div class="num">'+esc(k.num)+'</div><div class="note">'+esc(k.note)+'</div></div>';
+  }).join('');
+
+  // Attention
+  $('attList').innerHTML = D.attention.map(function(a){
+    return '<li><span class="pill '+esc(a.tone)+'" style="margin-right:6px">&nbsp;</span>'+esc(a.text)+'</li>';
+  }).join('');
+
+  // Fleet
+  var f = D.fleet, total = f.eligibility.reduce(function(s,e){return s+e.count},0);
+  $('fleet').innerHTML =
+    '<div class="sub">Target OS: '+esc(D.targetOS)+'</div>' +
+    '<div class="row"><strong>Hardware readiness</strong><span class="sub">'+total+' Macs · as of '+fmt(f.asOf)+'</span></div>' +
+    '<div class="bar" role="img" aria-label="Hardware readiness">'+
+      f.eligibility.map(function(e){return '<span style="width:'+pct(e.count,total)+'%;background:'+e.color+'" title="'+esc(e.label)+': '+e.count+'"></span>'}).join('')+'</div>' +
+    '<div class="legend">'+f.eligibility.map(function(e){return '<span><i style="background:'+e.color+'"></i>'+esc(e.label)+' — <b>'+e.count+'</b> ('+pct(e.count,total)+'%)</span>'}).join('')+'</div>' +
+    '<div class="row" style="margin-top:18px"><strong>Current OS groups</strong></div>' +
+    '<table>'+f.groups.map(function(g){return '<tr><td>'+esc(g.name)+'<div class="sub">'+esc(g.note)+'</div></td><td class="num-col"><b>'+g.count+'</b></td></tr>'}).join('')+'</table>';
+
+  // Overall progress
+  var html = '<div class="row" style="margin-top:0"><strong>'+doneCt+' of '+allItems.length+' tasks done</strong><span class="sub">'+Math.round(doneCt/allItems.length*100)+'%</span></div>'+
+             '<div class="prog"><span style="width:'+(doneCt/allItems.length*100)+'%"></span></div>';
+  html += '<table style="margin-top:12px">'+D.tasks.map(function(g){
+    var d = g.items.filter(function(i){return i.done}).length;
+    return '<tr><td>'+esc(g.group)+'</td><td class="num-col">'+d+' / '+g.items.length+'</td></tr>';
+  }).join('')+'</table>';
+  $('overall').innerHTML = html;
+
+  // Metrics
+  $('metrics').innerHTML =
+    '<thead><tr><th>Week of</th><th class="num-col">Upgrades done</th><th class="num-col">Total at start</th><th class="num-col">New builds done</th><th class="num-col">Builds total</th><th>Notes</th></tr></thead><tbody>'+
+    D.metrics.slice().reverse().map(function(m){
+      return '<tr><td>'+fmt(m.date)+'</td><td class="num-col">'+esc(m.upgradesDone)+'</td><td class="num-col">'+esc(m.upgradesTotal)+'</td><td class="num-col">'+esc(m.buildsDone)+'</td><td class="num-col">'+esc(m.buildsTotal)+'</td><td>'+esc(m.notes)+'</td></tr>';
+    }).join('')+'</tbody>';
+
+  // Timeline
+  var nextKey = upNext ? D.timeline.indexOf(upNext) : -1;
+  var confPill = {confirmed:['ok','confirmed'], target:['acc','target'], tbd:['tbd','TBD']};
+  $('timeline').innerHTML = D.timeline.map(function(e,i){
+    var cp = confPill[e.conf] || confPill.tbd;
+    var cls = (e.done?'done ':'') + (i===nextKey?'next':'');
+    var d = e.date ? '<div class="d">'+fmt(e.date)+'<small>'+DOW[parse(e.date).getDay()]+'</small></div>' : '<div class="d">TBD</div>';
+    return '<li class="'+cls+'">'+d+'<div><div class="t">'+esc(e.event)+'</div>'+(e.owner?'<div class="who">Owner: '+esc(e.owner)+'</div>':'')+'</div><span class="pill '+cp[0]+'">'+cp[1]+'</span></li>';
+  }).join('');
+
+  // Tasks
+  $('tasks').innerHTML = D.tasks.map(function(g,gi){
+    var d = g.items.filter(function(i){return i.done}).length;
+    return '<details'+(gi<4?' open':'')+'><summary><span>'+esc(g.group)+'</span><span class="sub">'+d+' / '+g.items.length+'</span></summary><ul>'+
+      g.items.map(function(i){return '<li class="'+(i.done?'done':'')+'">'+esc(i.t)+'</li>'}).join('')+'</ul></details>';
+  }).join('');
+
+  // Decisions + questions
+  $('decisions').innerHTML = D.decisions.map(function(d){
+    return '<tr><td>'+fmt(d.date)+'</td><td>'+esc(d.what)+'<div class="sub">Why: '+esc(d.why)+'</div></td></tr>';
+  }).join('');
+  $('questions').innerHTML = D.questions.map(function(q){return '<li>'+esc(q)+'</li>'}).join('');
+
+  // Theme toggle
+  var root = document.documentElement;
+  try{var saved = localStorage.getItem('theme'); if(saved) root.setAttribute('data-theme', saved)}catch(e){}
+  $('themeBtn').addEventListener('click', function(){
+    var dark = root.getAttribute('data-theme')==='dark' ||
+      (!root.getAttribute('data-theme') && matchMedia('(prefers-color-scheme:dark)').matches);
+    var next = dark ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try{localStorage.setItem('theme', next)}catch(e){}
+  });
+})();
+</script>
+</body>
+</html>
