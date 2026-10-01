@@ -97,7 +97,7 @@ a{color:var(--accent)}
      ===================================================================== -->
 <script id="data" type="application/json">
 {
-  "updated": "2026-09-30",
+  "updated": "2026-10-01",
   "deadline": "2026-12-01",
   "status": {
     "label": "In progress — setup/communication phase",
@@ -105,7 +105,7 @@ a{color:var(--accent)}
   },
   "targetOS": "macOS 27 we are currently on hold awaiting our production build to be ready.<br>see Open Questions",
   "scope": {
-    "total": 123
+    "total": 505
   },
   "fleet": {
     "asOf": "2026-09-30",
@@ -114,18 +114,29 @@ a{color:var(--accent)}
         "name": "all Macs on macOS 15",
         "short": "all",
         "count": 123,
-        "note": "Upgrade work · 0 on 27.0+, 123 below"
+        "note": "Upgrade work · 0 on 26.7+, 123 below"
+      },
+      {
+        "name": "Group 267",
+        "short": "Group",
+        "count": 382,
+        "note": "Upgrade work · 0 on 26.7+, 382 below"
       }
     ],
     "eligibility": [
       {
-        "label": "Apple silicon — can run macOS 27",
-        "count": 112,
+        "label": "Apple silicon — can run 26 and 27",
+        "count": 484,
         "color": "var(--s1)"
       },
       {
-        "label": "Intel — can't run macOS 27",
-        "count": 11,
+        "label": "Intel — macOS 26 max",
+        "count": 17,
+        "color": "var(--s3)"
+      },
+      {
+        "label": "Cannot run Tahoe",
+        "count": 4,
         "color": "var(--s4)"
       }
     ]
