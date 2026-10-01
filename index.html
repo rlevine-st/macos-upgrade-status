@@ -103,7 +103,7 @@ a{color:var(--accent)}
     "label": "In progress — setup/communication phase",
     "tone": "warn"
   },
-  "targetOS": "macOS 27 we are currently on hold awaiting our production build to be ready.<br>see Open Questions",
+  "targetOS": "macOS 26 now: Macs on macOS 15 → 26, Macs on macOS 26 → latest 26.x. Once our macOS 27 production release is available (tentatively Oct 9), all upgrades and…",
   "scope": {
     "total": 505
   },
@@ -117,8 +117,8 @@ a{color:var(--accent)}
         "note": "Upgrade work · 0 on 26.7+, 123 below"
       },
       {
-        "name": "Group 267",
-        "short": "Group",
+        "name": "Macs on macOS 26 below 26.7",
+        "short": "Macs",
         "count": 382,
         "note": "Upgrade work · 0 on 26.7+, 382 below"
       }
@@ -145,10 +145,10 @@ a{color:var(--accent)}
     {
       "date": "2026-09-30",
       "upgradesDone": 0,
-      "upgradesTotal": "123",
+      "upgradesTotal": "505",
       "buildsDone": 0,
       "buildsTotal": "13",
-      "notes": "Group 158 redefined as all Macs on macOS 15 (123; Jamf report Sep 30): 112 → macOS 27, 11 Intel can't run 27. Workbook: macOS Upgrade Path Summary (2026-09-30).xlsx."
+      "notes": "158 = all Macs on macOS 15 (123): 119 can run macOS 26 (112 Apple silicon + 7 Intel), 4 can't run 26. 267 = Macs on macOS 26 below 26.7 (382). Workbook: macOS Upgrade Path Summary (2026-09-30).xlsx."
     }
   ],
   "attention": [
@@ -158,11 +158,19 @@ a{color:var(--accent)}
     },
     {
       "tone": "warn",
-      "text": "Oct 16 escalation (Dionne or Phil) — verify the manager list is ready; the 11 Intel Macs that can't run macOS 27 need a replacement decision."
+      "text": "Oct 16 escalation (Dionne or Phil) — verify the manager list is ready; the 4 Macs that can't run macOS 26 need a replacement decision."
     },
     {
       "tone": "warn",
-      "text": "Target OS — macOS 27 we are currently on hold awaiting our production macOS 27 build to be ready."
+      "text": "Target OS — macOS 26 now (15 → 26; 26.x → latest 26); macOS 27 for all upgrades and new builds once the production release is available (tentatively Oct 9). Confirm which 26.x release counts as compliant."
+    },
+    {
+      "tone": "warn",
+      "text": "No in-place upgrade from 15 to 26 — each of the 123 Macs needs a scheduled upgrade. Plan scheduling capacity, loaners and offsite users: see Upgrade Approach."
+    },
+    {
+      "tone": "warn",
+      "text": "User emails drafted — review/approve User Email Drafts before sending. New spreadsheets are incoming; refresh counts when they land."
     }
   ],
   "timeline": [
@@ -219,7 +227,7 @@ a{color:var(--accent)}
       "date": "2026-10-09",
       "conf": "target",
       "done": false,
-      "event": "macOS 27 production build (new builds, rebuilds, upgrades) tentatively complete; upgrades are on hold until then",
+      "event": "macOS 27 production release available (tentative). From then on all upgrades and new builds target 27 (Apple silicon); Intel Macs stay on the latest 26",
       "owner": ""
     },
     {
@@ -242,6 +250,20 @@ a{color:var(--accent)}
       "done": false,
       "event": "Final escalation email — Sunday; send Fri Nov 13 or Mon Nov 16?",
       "owner": "Deb"
+    },
+    {
+      "date": null,
+      "conf": "tbd",
+      "done": false,
+      "event": "Send user emails (all-users notice, then per-OS emails): drafts in User Email Drafts",
+      "owner": "Me"
+    },
+    {
+      "date": null,
+      "conf": "tbd",
+      "done": false,
+      "event": "Scheduling process for the 123 macOS 15 → 26 upgrades; confirm loaner pool and approach for full-time offsite users",
+      "owner": "Me"
     },
     {
       "date": null,
@@ -307,6 +329,26 @@ a{color:var(--accent)}
         },
         {
           "t": "Draft initial notification email in ITSD Draft Notifications Home — template: POAM_macOS_upgrade",
+          "done": false
+        },
+        {
+          "t": "Review and approve the user emails in User Email Drafts (all-users notice, macOS 15 email, macOS 26 email, \"run updates until 27\" email)",
+          "done": false
+        },
+        {
+          "t": "Define the scheduling process for the 123 macOS 15 → 26 upgrades (no in-place option) and decide how users book (Generic Request?)",
+          "done": false
+        },
+        {
+          "t": "Scope the loaner need and process (pool size, set-up, data transfer, return)",
+          "done": false
+        },
+        {
+          "t": "Plan for full-time offsite users (shipping, remote session, extra time commitment)",
+          "done": false
+        },
+        {
+          "t": "Plan the patch run for the 382 Macs on macOS 26 to the latest 26.x; confirm which 26.x is compliant",
           "done": false
         }
       ]
@@ -402,11 +444,11 @@ a{color:var(--accent)}
           "done": true
         },
         {
-          "t": "Provide fleet model list → filled in Hardware Requirements fleet table (123 Macs)",
+          "t": "Provide fleet model list → filled in Hardware Requirements fleet tables",
           "done": true
         },
         {
-          "t": "Escalate the 11 Intel Macs that can't run macOS 27 to IT Resources / Phil for replacement planning (4 older: 3× iMac Pro 2017, 1× MBP 15\"…",
+          "t": "Escalate the 4 Macs that can't run macOS 26 (3× iMac Pro 2017, 1× MBP 15\" 2018) to IT Resources / Phil for replacement planning;",
           "done": true
         },
         {
@@ -418,18 +460,28 @@ a{color:var(--accent)}
   ],
   "decisions": [
     {
+      "date": "2026-10-01",
+      "what": "Target is macOS 26: Macs on macOS 15 → 26; Macs on macOS 26 → latest 26.x. When our macOS 27 production release is available (tentatively Oct 9), all upgrades and new builds go to 27",
+      "why": "Production build isn't ready; direction from Ryan (replaces the Sep 30 macOS 27-only scope)"
+    },
+    {
+      "date": "2026-10-01",
+      "what": "15 → 26 upgrades are scheduled with users (no in-place upgrade method); plan for loaners and offsite users",
+      "why": "No self-service route exists for this jump"
+    },
+    {
+      "date": "2026-10-01",
+      "what": "Intel Macs stay on the latest 26; the 4 Macs that can't run 26 are replacement candidates",
+      "why": "macOS 27 needs Apple silicon; 4 models top out at macOS 15"
+    },
+    {
       "date": "2026-09-30",
       "what": "Jamf Smart Group reports are stored in Attachments/Smart Groups/, named <group>_MMDD.xlsx; superseded reports go to Smart Groups/Archive/",
       "why": "One place to drop new exports; the date suffix keeps successive exports of the same group distinct"
     },
     {
-      "date": "2026-09-30",
-      "what": "Target is macOS 27; upgrades are on hold until the production build is ready (tentatively Oct 9)",
-      "why": "Production build not ready yet; scope is only Macs going from macOS 15 to 27"
-    },
-    {
       "date": "2026-09-29",
-      "what": "Track OS eligibility per computer by Model Identifier against Apple's compatibility pages (macOS 27), via a lookup tab in the fleet workbook",
+      "what": "Track OS eligibility per computer by Model Identifier against Apple's compatibility pages (macOS 26 and 27), via a lookup tab in the fleet workbook",
       "why": "Identifier is unambiguous; new models get added in one place and all counts recalc"
     },
     {
@@ -449,11 +501,13 @@ a{color:var(--accent)}
     }
   ],
   "questions": [
-    "macOS 27 production build date",
+    "macOS 27 production release date",
     "\"Golden Gate Project — Oct 6\"",
     "Weekend escalation dates (Nov 1, Nov 15 are Sundays)",
     "What does \"~120\" refer to? (device count?)",
-    "Daily updates (Dionne + Phil)"
+    "Daily updates (Dionne + Phil)",
+    "Which 26.x is compliant?",
+    "Loaners and offsite users"
   ],
   "links": []
 }
