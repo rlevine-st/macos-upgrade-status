@@ -103,9 +103,9 @@ a{color:var(--accent)}
     "label": "In progress — setup/communication phase",
     "tone": "warn"
   },
-  "targetOS": "macOS 26 now: Macs on macOS 15 → 26, Macs on macOS 26 → latest 26.x. Once our macOS 27 production release is available (tentatively Oct 9), all upgrades and…",
+  "targetOS": "macOS 26 for the Macs on macOS 15. Once our macOS 27 production release is available (tentatively Oct 9), all upgrades and new builds go to 27 (Apple silicon…",
   "scope": {
-    "total": 505
+    "total": 123
   },
   "fleet": {
     "asOf": "2026-09-30",
@@ -115,23 +115,17 @@ a{color:var(--accent)}
         "short": "all",
         "count": 123,
         "note": "Upgrade work · 0 on 26.7+, 123 below"
-      },
-      {
-        "name": "Macs on macOS 26 below 26.7",
-        "short": "Macs",
-        "count": 382,
-        "note": "Upgrade work · 0 on 26.7+, 382 below"
       }
     ],
     "eligibility": [
       {
         "label": "Apple silicon — can run 26 and 27",
-        "count": 484,
+        "count": 112,
         "color": "var(--s1)"
       },
       {
         "label": "Intel — macOS 26 max",
-        "count": 17,
+        "count": 7,
         "color": "var(--s3)"
       },
       {
@@ -145,10 +139,10 @@ a{color:var(--accent)}
     {
       "date": "2026-09-30",
       "upgradesDone": 0,
-      "upgradesTotal": "505",
+      "upgradesTotal": "123",
       "buildsDone": 0,
       "buildsTotal": "13",
-      "notes": "158 = all Macs on macOS 15 (123): 119 can run macOS 26 (112 Apple silicon + 7 Intel), 4 can't run 26. 267 = Macs on macOS 26 below 26.7 (382). Workbook: macOS Upgrade Path Summary (2026-09-30).xlsx."
+      "notes": "158 = all Macs on macOS 15 (123): 119 can run macOS 26 (112 Apple silicon + 7 Intel), 4 can't run 26. Macs already on macOS 26 are out of scope (Oct 1)."
     }
   ],
   "attention": [
@@ -162,7 +156,7 @@ a{color:var(--accent)}
     },
     {
       "tone": "warn",
-      "text": "Target OS — macOS 26 now (15 → 26; 26.x → latest 26); macOS 27 for all upgrades and new builds once the production release is available (tentatively Oct 9). Confirm which 26.x release counts as compliant."
+      "text": "Target OS — macOS 26 for the Macs on macOS 15; macOS 27 for all upgrades and new builds once the production release is available (tentatively Oct 9). Confirm which 26.x the upgrade should install."
     },
     {
       "tone": "warn",
@@ -170,7 +164,7 @@ a{color:var(--accent)}
     },
     {
       "tone": "warn",
-      "text": "User emails drafted — review/approve User Email Drafts - Original before sending. New spreadsheets are incoming; refresh counts when they land."
+      "text": "User email drafted — review/approve the macOS 15 email in User Email Drafts before sending. A new spreadsheet is incoming; refresh counts when it lands."
     }
   ],
   "timeline": [
@@ -227,7 +221,7 @@ a{color:var(--accent)}
       "date": "2026-10-09",
       "conf": "target",
       "done": false,
-      "event": "macOS 27 production release available (tentative). From then on all upgrades and new builds target 27 (Apple silicon); Intel Macs stay on the latest 26",
+      "event": "macOS 27 production release available (tentative). From then on all upgrades and new builds target 27 (Apple silicon); Intel Macs stay on 26",
       "owner": ""
     },
     {
@@ -255,7 +249,7 @@ a{color:var(--accent)}
       "date": null,
       "conf": "tbd",
       "done": false,
-      "event": "Send user emails (all-users notice, then per-OS emails): drafts in User Email Drafts - Original",
+      "event": "Send the macOS 15 user email: draft in User Email Drafts",
       "owner": "Me"
     },
     {
@@ -332,7 +326,7 @@ a{color:var(--accent)}
           "done": false
         },
         {
-          "t": "Review and approve the user emails in User Email Drafts - Original (all-users notice, macOS 15 email, macOS 26 email, \"run updates until…",
+          "t": "Review and approve the macOS 15 user email in User Email Drafts",
           "done": false
         },
         {
@@ -345,10 +339,6 @@ a{color:var(--accent)}
         },
         {
           "t": "Plan for full-time offsite users (shipping, remote session, extra time commitment)",
-          "done": false
-        },
-        {
-          "t": "Plan the patch run for the 382 Macs on macOS 26 to the latest 26.x; confirm which 26.x is compliant",
           "done": false
         }
       ]
@@ -461,8 +451,13 @@ a{color:var(--accent)}
   "decisions": [
     {
       "date": "2026-10-01",
-      "what": "Target is macOS 26: Macs on macOS 15 → 26; Macs on macOS 26 → latest 26.x. When our macOS 27 production release is available (tentatively Oct 9), all upgrades and new builds go to 27",
-      "why": "Production build isn't ready; direction from Ryan (replaces the Sep 30 macOS 27-only scope)"
+      "what": "Target is macOS 26 for Macs on macOS 15. When our macOS 27 production release is available (tentatively Oct 9), all upgrades and new builds go to 27",
+      "why": "Direction from Ryan; production build isn't ready (replaces the Sep 30 macOS 27-only scope)"
+    },
+    {
+      "date": "2026-10-01",
+      "what": "Macs already on macOS 26 are out of scope: not tracked and not messaged this round",
+      "why": "Direction from Ryan; simplifies messaging and workload"
     },
     {
       "date": "2026-10-01",
@@ -476,7 +471,7 @@ a{color:var(--accent)}
     },
     {
       "date": "2026-10-01",
-      "what": "Intel Macs stay on the latest 26; the 4 Macs that can't run 26 are replacement candidates",
+      "what": "Intel Macs that can run 26 but not 27 stay on 26; the 4 Macs that can't run 26 are replacement candidates",
       "why": "macOS 27 needs Apple silicon; 4 models top out at macOS 15"
     },
     {
@@ -493,11 +488,6 @@ a{color:var(--accent)}
       "date": "2026-09-29",
       "what": "Weekly update to Phil is due Wednesdays by 3pm, not Fridays as the KB states",
       "why": "Direction from Ryan; KB text left as-is in the Reference section"
-    },
-    {
-      "date": "2026-09-29",
-      "what": "Project gets its own folder: 02 Tickets/macOS Upgrade Project/ (primary note + Attachments/ + supporting notes)",
-      "why": "Keep all project files together; stays under 02 Tickets per the #work convention"
     }
   ],
   "questions": [
@@ -506,7 +496,7 @@ a{color:var(--accent)}
     "Weekend escalation dates (Nov 1, Nov 15 are Sundays)",
     "What does \"~120\" refer to? (device count?)",
     "Daily updates (Dionne + Phil)",
-    "Which 26.x is compliant?",
+    "Which 26.x should the upgrade install?",
     "Loaners and offsite users"
   ],
   "links": []
