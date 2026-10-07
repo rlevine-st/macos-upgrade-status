@@ -143,16 +143,24 @@ a{color:var(--accent)}
       "buildsDone": 0,
       "buildsTotal": "13",
       "notes": "158 = all Macs on macOS 15 (123): 119 can run macOS 26 (112 Apple silicon + 7 Intel), 4 can't run 26. Macs already on macOS 26 are out of scope (Oct 1)."
+    },
+    {
+      "date": "2026-10-07",
+      "upgradesDone": "TBD",
+      "upgradesTotal": "123",
+      "buildsDone": 0,
+      "buildsTotal": "TBD",
+      "notes": "Oct 7 exports: 115 Macs still on macOS 15 (111 eligible for Tahoe, 4 not eligible). 8 fewer than the Sep 30 baseline of 123; confirm whether those were upgraded, replaced, or dropped."
     }
   ],
   "attention": [
     {
       "tone": "warn",
-      "text": "Waiting on Geoff — emailed Sep 30 (cc Dionne) for the list of people with a Mac reserved or an upcoming replacement; asked for it by early next week (~Oct 5)."
+      "text": "Waiting on Geoff — emailed Sep 30 (cc Dionne) for the list of people with a Mac reserved or an upcoming replacement. On Oct 5 he replied he needs a few more days; follow up if nothing arrives by ~Oct 9."
     },
     {
       "tone": "warn",
-      "text": "Oct 16 escalation (Dionne or Phil) — verify the manager list is ready; the 4 Macs that can't run macOS 26 need a replacement decision."
+      "text": "Oct 16 escalation (Dionne or Phil) — verify the manager list is ready; the 4 Macs that can't run macOS 26 ([device], [device], [device], [device]) still need replacement;"
     },
     {
       "tone": "warn",
@@ -454,6 +462,11 @@ a{color:var(--accent)}
   ],
   "decisions": [
     {
+      "date": "2026-10-05",
+      "what": "Make the macOS 26 upgrade available through Self Service; scheduling (Pick a Time) is optional, not required. Pending Phil's final approval",
+      "why": "Phil: self-service is the goal and forcing staff on-site is a deal breaker; tested and looks ready (Weekly Update 10-07)"
+    },
+    {
       "date": "2026-10-01",
       "what": "Target is macOS 26 for Macs on macOS 15. When our macOS 27 production release is available (tentatively Oct 9), all upgrades and new builds go to 27",
       "why": "Direction from Ryan; production build isn't ready (replaces the Sep 30 macOS 27-only scope)"
@@ -487,11 +500,6 @@ a{color:var(--accent)}
       "date": "2026-09-29",
       "what": "Track OS eligibility per computer by Model Identifier against Apple's compatibility pages (macOS 26 and 27), via a lookup tab in the fleet workbook",
       "why": "Identifier is unambiguous; new models get added in one place and all counts recalc"
-    },
-    {
-      "date": "2026-09-29",
-      "what": "Weekly update to Phil is due Wednesdays by 3pm, not Fridays as the KB states",
-      "why": "Direction from Ryan; KB text left as-is in the Reference section"
     }
   ],
   "questions": [
