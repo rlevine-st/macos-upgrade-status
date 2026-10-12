@@ -100,8 +100,8 @@ a{color:var(--accent)}
   "updated": "2026-10-12",
   "deadline": "2026-12-01",
   "status": {
-    "label": "In progress — Self Service KB approved (Oct 9);",
-    "tone": "warn"
+    "label": "First notice sent Oct 12 (from IT Services); staff can self-upgrade through Self Service…",
+    "tone": "ok"
   },
   "targetOS": "macOS 26 for the Macs on macOS 15. Once our macOS 27 production release is available (tentatively Oct 9), all upgrades and new builds go to 27 (Apple silicon…",
   "scope": {
@@ -164,11 +164,15 @@ a{color:var(--accent)}
   "attention": [
     {
       "tone": "warn",
-      "text": "Send the staff email — Phil (Oct 12): it goes out from itservices@stsci.edu and includes the list of Macs and their users (attached, Mac Computers Required to Upgrade to macos 26)."
+      "text": "First notice is out (Oct 12, 10:20 AM, 108 users): 01 - First Notice.pdf, logged in Notices Sent. Corey at the Service Desk has been told. Watch for tickets and track them in Resulting Tickets/."
     },
     {
       "tone": "warn",
-      "text": "Fix the list before sending — 5 unmatched asset tags ([device], [device], [device], [device], [device]) and the 111 vs 109 row count: macOS Upgrade -- Data Cross-Check."
+      "text": "Merle Reinhart's exception request — 2 Macs ([device], [device]) tied to the SOGS domain; being submitted. Hold both out of the upgrade until it's decided."
+    },
+    {
+      "tone": "warn",
+      "text": "Fix the Mac list — 5 unmatched asset tags ([device], [device], [device], [device], [device]) and the 111 vs 109 row count: macOS Upgrade -- Data Cross-Check. Adam Riess got the notice though he was removed from the list."
     },
     {
       "tone": "warn",
@@ -176,11 +180,7 @@ a{color:var(--accent)}
     },
     {
       "tone": "warn",
-      "text": "Oct 16 escalation (Dionne) — verify the manager list. The 4 Macs that can't run Tahoe have no replacement before Dec 1 ([device] and [device] are being decommissioned in November; no stock-room systems;"
-    },
-    {
-      "tone": "warn",
-      "text": "Two incidents from the Self Service rollout — INC0227264 -- Upgrade your Mac to macOS 26 \"Tahoe\" by 1 December, 2026 and INC0227267 -- Cannot find \"Upgrade to Tahoe\" app on self service app (policy scoped to the eligible smart…"
+      "text": "Oct 16 escalation (Dionne) — verify the manager list. The 4 Macs that can't run Tahoe have no replacement before Dec 1."
     },
     {
       "tone": "warn",
@@ -188,7 +188,7 @@ a{color:var(--accent)}
     },
     {
       "tone": "warn",
-      "text": "Intel macOS 26-only Macs (6) — upgrade this cycle; only Maria Bertch ([device]) is open (Geoff says she's retired; check Jamf check-in)."
+      "text": "Phil is confirming with leadership that RMO doesn't need to approve."
     }
   ],
   "timeline": [
@@ -263,6 +263,13 @@ a{color:var(--accent)}
       "owner": ""
     },
     {
+      "date": "2026-10-12",
+      "conf": "confirmed",
+      "done": true,
+      "event": "First notice sent from IT Services (KB0015329; Generic Request for assisted upgrades); Corey told. Notices Sent",
+      "owner": "Me"
+    },
+    {
       "date": "2026-10-13",
       "conf": "confirmed",
       "done": false,
@@ -301,14 +308,7 @@ a{color:var(--accent)}
       "date": null,
       "conf": "tbd",
       "done": false,
-      "event": "Send the staff email from itservices@stsci.edu with the Mac/user list; tell Corey first so the Service Desk is ready. Date to decide; wait for Phil's check with leadership (RMO)",
-      "owner": "Me"
-    },
-    {
-      "date": null,
-      "conf": "tbd",
-      "done": false,
-      "event": "Optional scheduling (Pick a Time), loaner pool and offsite approach for users who ask to schedule; Self Service is the primary route",
+      "event": "Assisted upgrades come through Generic Request. Loaner pool and offsite approach for users who ask for help",
       "owner": "Me"
     },
     {
@@ -382,20 +382,20 @@ a{color:var(--accent)}
           "done": true
         },
         {
-          "t": "Finalize and send the staff email from itservices@stsci.edu with the Mac/user list; choose the send date",
-          "done": false
+          "t": "Send the first notice from itservices@stsci.edu with the Mac/user list : Notices Sent",
+          "done": true
         },
         {
           "t": "Tell Corey so he can prep the Service Desk",
-          "done": false
+          "done": true
         },
         {
           "t": "Phil confirming with leadership that RMO doesn't need to approve",
           "done": false
         },
         {
-          "t": "(Optional) Set up ServiceNow Pick a Time for users who prefer to schedule (slots, capacity, link, appointment length)",
-          "done": false
+          "t": "Pick a Time not needed: assisted upgrades come through a Generic Request (first notice, Oct 12)",
+          "done": true
         },
         {
           "t": "Scope the loaner need and process (pool size, set-up, data transfer, return)",
@@ -443,7 +443,11 @@ a{color:var(--accent)}
           "done": true
         },
         {
-          "t": "Track tickets from the rollout in Resulting Tickets/ (2 so far: INC0227264, INC0227267)",
+          "t": "Track tickets from the rollout in Resulting Tickets/ (2 so far: INC0227264 open, INC0227267 resolved Oct 12)",
+          "done": false
+        },
+        {
+          "t": "Submit Merle Reinhart's exception request (2 Macs, SOGS domain) and hold them out",
           "done": false
         },
         {
@@ -527,6 +531,16 @@ a{color:var(--accent)}
   "decisions": [
     {
       "date": "2026-10-12",
+      "what": "First notice goes to users with Self Service (KB0015329) as the main route and a Generic Request for assisted upgrades; Pick a Time is not used",
+      "why": "Matches Phil's \"self-service is the goal\"; reuses the existing request path"
+    },
+    {
+      "date": "2026-10-12",
+      "what": "Merle Reinhart's 2 SOGS-domain Macs are held out pending an exception request",
+      "why": "They are directly tied to the SOGS domain"
+    },
+    {
+      "date": "2026-10-12",
       "what": "The 6 Intel Macs that top out at macOS 26 are upgraded to 26 this cycle rather than waiting for replacements",
       "why": "Geoff raised no impediments; none are on the FY27 plan except where noted"
     },
@@ -554,16 +568,6 @@ a{color:var(--accent)}
       "date": "2026-10-05",
       "what": "Make the macOS 26 upgrade available through Self Service; scheduling (Pick a Time) is optional, not required. Pending Phil's final approval",
       "why": "Phil: self-service is the goal and forcing staff on-site is a deal breaker; tested and looks ready (Weekly Update 10-07)"
-    },
-    {
-      "date": "2026-10-01",
-      "what": "Target is macOS 26 for Macs on macOS 15. When our macOS 27 production release is available (tentatively Oct 9), all upgrades and new builds go to 27",
-      "why": "Direction from Ryan; production build isn't ready (replaces the Sep 30 macOS 27-only scope)"
-    },
-    {
-      "date": "2026-10-01",
-      "what": "Macs already on macOS 26 are out of scope: not tracked and not messaged this round",
-      "why": "Direction from Ryan; simplifies messaging and workload"
     }
   ],
   "questions": [
