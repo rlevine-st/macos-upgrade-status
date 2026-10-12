@@ -97,10 +97,10 @@ a{color:var(--accent)}
      ===================================================================== -->
 <script id="data" type="application/json">
 {
-  "updated": "2026-10-07",
+  "updated": "2026-10-12",
   "deadline": "2026-12-01",
   "status": {
-    "label": "In progress — setup/communication phase",
+    "label": "In progress — Self Service KB approved (Oct 9);",
     "tone": "warn"
   },
   "targetOS": "macOS 26 for the Macs on macOS 15. Once our macOS 27 production release is available (tentatively Oct 9), all upgrades and new builds go to 27 (Apple silicon…",
@@ -151,28 +151,44 @@ a{color:var(--accent)}
       "buildsDone": 0,
       "buildsTotal": "TBD",
       "notes": "Oct 7 exports: 115 Macs still on macOS 15 (111 eligible for Tahoe, 4 not eligible). 8 fewer than the Sep 30 baseline of 123; confirm whether those were upgraded, replaced, or dropped."
+    },
+    {
+      "date": "2026-10-12",
+      "upgradesDone": "TBD",
+      "upgradesTotal": "123",
+      "buildsDone": 0,
+      "buildsTotal": "TBD",
+      "notes": "109 Macs on the required-upgrade list + 4 that can't upgrade. Self Service KB approved Oct 9; staff email not sent yet, so no staff-driven upgrades expected. See Printable Status"
     }
   ],
   "attention": [
     {
       "tone": "warn",
-      "text": "Waiting on Geoff — emailed Sep 30 (cc Dionne) for the list of people with a Mac reserved or an upcoming replacement. On Oct 5 he replied he needs a few more days; follow up if nothing arrives by ~Oct 9."
+      "text": "Send the staff email — Phil (Oct 12): it goes out from itservices@stsci.edu and includes the list of Macs and their users (attached, Mac Computers Required to Upgrade to macos 26)."
     },
     {
       "tone": "warn",
-      "text": "Oct 16 escalation (Dionne or Phil) — verify the manager list is ready; the 4 Macs that can't run macOS 26 ([device], [device], [device], [device]) still need replacement;"
+      "text": "Fix the list before sending — 5 unmatched asset tags ([device], [device], [device], [device], [device]) and the 111 vs 109 row count: macOS Upgrade -- Data Cross-Check."
     },
     {
       "tone": "warn",
-      "text": "Target OS — macOS 26 for the Macs on macOS 15; macOS 27 for all upgrades and new builds once the production release is available (tentatively Oct 9). Confirm which 26.x the upgrade should install."
+      "text": "Hold out 4 Macs being swapped Oct 13–14 ([device], [device], [device], [device]) and confirm Hoch's and Morse's reserved Macs with Geoff: macOS Upgrade -- Mac Replacements."
     },
     {
       "tone": "warn",
-      "text": "No in-place upgrade from 15 to 26 — each of the 123 Macs needs a scheduled upgrade. Plan scheduling capacity, loaners and offsite users: see Upgrade Approach."
+      "text": "Oct 16 escalation (Dionne) — verify the manager list. The 4 Macs that can't run Tahoe have no replacement before Dec 1 ([device] and [device] are being decommissioned in November; no stock-room systems;"
     },
     {
       "tone": "warn",
-      "text": "User email drafted — review/approve the macOS 15 email in User Email Drafts before sending. A new spreadsheet is incoming; refresh counts when it lands."
+      "text": "Two incidents from the Self Service rollout — INC0227264 -- Upgrade your Mac to macOS 26 \"Tahoe\" by 1 December, 2026 and INC0227267 -- Cannot find \"Upgrade to Tahoe\" app on self service app (policy scoped to the eligible smart…"
+    },
+    {
+      "tone": "warn",
+      "text": "macOS 27 — Oct 9 has passed; confirm whether the production release is available. Until then the target stays macOS 26.7.1."
+    },
+    {
+      "tone": "warn",
+      "text": "Intel macOS 26-only Macs (6) — upgrade this cycle; only Maria Bertch ([device]) is open (Geoff says she's retired; check Jamf check-in)."
     }
   ],
   "timeline": [
@@ -213,9 +229,9 @@ a{color:var(--accent)}
     },
     {
       "date": "2026-10-05",
-      "conf": "target",
+      "conf": "confirmed",
       "done": false,
-      "event": "Geoff's list requested \"by early next week\"",
+      "event": "Geoff's list requested \"by early next week\" (reply came Oct 12)",
       "owner": "Me"
     },
     {
@@ -226,11 +242,39 @@ a{color:var(--accent)}
       "owner": ""
     },
     {
+      "date": "2026-10-08",
+      "conf": "confirmed",
+      "done": true,
+      "event": "Self Service KB drafted (KB - Upgrade to macOS Tahoe 26.7.1 using Self Service) and sent to Phil for review",
+      "owner": "Me"
+    },
+    {
       "date": "2026-10-09",
-      "conf": "target",
-      "done": false,
-      "event": "macOS 27 production release available (tentative). From then on all upgrades and new builds target 27 (Apple silicon); Intel Macs stay on 26",
+      "conf": "confirmed",
+      "done": true,
+      "event": "Phil approved the KB; staff email must come from IT Services and include the Mac/user list",
+      "owner": "Phil"
+    },
+    {
+      "date": "2026-10-12",
+      "conf": "confirmed",
+      "done": true,
+      "event": "Geoff replied with priorities and build tickets; Phil OK'd the email approach (\"I think that should be it\")",
       "owner": ""
+    },
+    {
+      "date": "2026-10-13",
+      "conf": "confirmed",
+      "done": false,
+      "event": "4 reserved-Mac swaps due (Anderson, Perriello Oct 13; Dosaj, Laidler Oct 14): hold their old Macs out of upgrades",
+      "owner": "Geoff"
+    },
+    {
+      "date": "2026-10-14",
+      "conf": "confirmed",
+      "done": false,
+      "event": "Weekly update to Phil, 3pm",
+      "owner": "Me"
     },
     {
       "date": "2026-10-16",
@@ -257,14 +301,14 @@ a{color:var(--accent)}
       "date": null,
       "conf": "tbd",
       "done": false,
-      "event": "Send the macOS 15 user email: draft in User Email Drafts",
+      "event": "Send the staff email from itservices@stsci.edu with the Mac/user list; tell Corey first so the Service Desk is ready. Date to decide; wait for Phil's check with leadership (RMO)",
       "owner": "Me"
     },
     {
       "date": null,
       "conf": "tbd",
       "done": false,
-      "event": "Scheduling process for the 123 macOS 15 → 26 upgrades; confirm loaner pool and approach for full-time offsite users",
+      "event": "Optional scheduling (Pick a Time), loaner pool and offsite approach for users who ask to schedule; Self Service is the primary route",
       "owner": "Me"
     },
     {
@@ -334,11 +378,23 @@ a{color:var(--accent)}
           "done": false
         },
         {
-          "t": "Review and approve the macOS 15 user email in User Email Drafts",
+          "t": "Phil reviewed the staff email on Innerspace",
+          "done": true
+        },
+        {
+          "t": "Finalize and send the staff email from itservices@stsci.edu with the Mac/user list; choose the send date",
           "done": false
         },
         {
-          "t": "Set up ServiceNow Pick a Time for the 123 macOS 15 → 26 upgrades (slots, capacity, link, appointment length) — if we proceed with 15 → 26",
+          "t": "Tell Corey so he can prep the Service Desk",
+          "done": false
+        },
+        {
+          "t": "Phil confirming with leadership that RMO doesn't need to approve",
+          "done": false
+        },
+        {
+          "t": "(Optional) Set up ServiceNow Pick a Time for users who prefer to schedule (slots, capacity, link, appointment length)",
           "done": false
         },
         {
@@ -383,7 +439,15 @@ a{color:var(--accent)}
           "done": false
         },
         {
-          "t": "Decide on the Self Service fallback and, if approved, build it in Jamf (EA, smart groups, policy, pilot on ~5 Macs): Self Service Upgrade…",
+          "t": "Self Service approach decided and the Jamf policy tested twice; Phil approved the KB : Self Service Upgrade Fallback Workflow",
+          "done": true
+        },
+        {
+          "t": "Track tickets from the rollout in Resulting Tickets/ (2 so far: INC0227264, INC0227267)",
+          "done": false
+        },
+        {
+          "t": "Fix the 5 unmatched asset tags and the 111 vs 109 row count on the Mac list; hold out the 4 swaps (Oct 13–14)",
           "done": false
         }
       ]
@@ -462,6 +526,31 @@ a{color:var(--accent)}
   ],
   "decisions": [
     {
+      "date": "2026-10-12",
+      "what": "The 6 Intel Macs that top out at macOS 26 are upgraded to 26 this cycle rather than waiting for replacements",
+      "why": "Geoff raised no impediments; none are on the FY27 plan except where noted"
+    },
+    {
+      "date": "2026-10-12",
+      "what": "The 4 Macs swapped by build tickets (Oct 13–14) are held out of upgrades; Adam Riess removed from the list",
+      "why": "Their Macs are being replaced; Riess's Jamf record is stale"
+    },
+    {
+      "date": "2026-10-09",
+      "what": "The staff email comes from IT Services (itservices@stsci.edu) and includes the list of Macs and their users",
+      "why": "Phil's direction; the list is the Mac Computers Required to Upgrade to macOS 26 sheet"
+    },
+    {
+      "date": "2026-10-09",
+      "what": "Phil approved the Self Service KB",
+      "why": "Self Service is the primary upgrade route"
+    },
+    {
+      "date": "2026-10-07",
+      "what": "The 4 Macs that can't run Tahoe get no stock-room replacement; staff request through IT Resources (IT Equipment Request or Grant Computer). [device] and [device] are decommissioned in November",
+      "why": "Phil's guidance"
+    },
+    {
       "date": "2026-10-05",
       "what": "Make the macOS 26 upgrade available through Self Service; scheduling (Pick a Time) is optional, not required. Pending Phil's final approval",
       "why": "Phil: self-service is the goal and forcing staff on-site is a deal breaker; tested and looks ready (Weekly Update 10-07)"
@@ -475,31 +564,6 @@ a{color:var(--accent)}
       "date": "2026-10-01",
       "what": "Macs already on macOS 26 are out of scope: not tracked and not messaged this round",
       "why": "Direction from Ryan; simplifies messaging and workload"
-    },
-    {
-      "date": "2026-10-01",
-      "what": "15 → 26 upgrades are scheduled with users (no in-place upgrade method); plan for loaners and offsite users",
-      "why": "No self-service route exists for this jump"
-    },
-    {
-      "date": "2026-10-01",
-      "what": "If we proceed with 15 → 26, users book their upgrade through ServiceNow Pick a Time",
-      "why": "Scheduled upgrades need a booking tool; Pick a Time handles slots and capacity"
-    },
-    {
-      "date": "2026-10-01",
-      "what": "Intel Macs that can run 26 but not 27 stay on 26; the 4 Macs that can't run 26 are replacement candidates",
-      "why": "macOS 27 needs Apple silicon; 4 models top out at macOS 15"
-    },
-    {
-      "date": "2026-09-30",
-      "what": "Jamf Smart Group reports are stored in Attachments/Smart Groups/, named <group>_MMDD.xlsx; superseded reports go to Smart Groups/Archive/",
-      "why": "One place to drop new exports; the date suffix keeps successive exports of the same group distinct"
-    },
-    {
-      "date": "2026-09-29",
-      "what": "Track OS eligibility per computer by Model Identifier against Apple's compatibility pages (macOS 26 and 27), via a lookup tab in the fleet workbook",
-      "why": "Identifier is unambiguous; new models get added in one place and all counts recalc"
     }
   ],
   "questions": [
