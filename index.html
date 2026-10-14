@@ -100,7 +100,7 @@ a{color:var(--accent)}
   "updated": "2026-10-14",
   "deadline": "2026-12-01",
   "status": {
-    "label": "Notice sent Oct 12; 12 of 123 Macs have left the macOS 15 group (4 since Oct 7). 111 to go",
+    "label": "15 of 123 Macs upgraded (8 by Oct 7, 4 by Oct 13, 3 by Oct 14). 108 to go.",
     "tone": "ok"
   },
   "targetOS": "macOS 26 for the Macs on macOS 15. Once our macOS 27 production release is available (tentatively Oct 9), all upgrades and new builds go to 27 (Apple silicon…",
@@ -167,12 +167,20 @@ a{color:var(--accent)}
       "buildsDone": 0,
       "buildsTotal": "TBD",
       "notes": "158 Oct 13: 111 Macs still on macOS 15 (107 eligible + 4 not). 12 left since Sep 30: 8 by Oct 7 and 4 since ([device], [device], [device], [device]). Workbook: Smart Groups/158_1013.xlsx."
+    },
+    {
+      "date": "2026-10-14",
+      "upgradesDone": "15 (inferred; confirm in Jamf)",
+      "upgradesTotal": "123",
+      "buildsDone": 0,
+      "buildsTotal": "TBD",
+      "notes": "158 Oct 14: 108 still on macOS 15 (104 eligible + 4 not). Upgraded so far, by report date: 8 by Oct 7, 4 by Oct 13, 3 by Oct 14. Full list: Upgraded Macs. Workbook: Smart Groups/158_1014.xlsx"
     }
   ],
   "attention": [
     {
       "tone": "warn",
-      "text": "12 Macs have left the macOS 15 group (none are on Geoff's lists, so they look upgraded). Confirm in Jamf; update the weekly draft. First notice is out (Oct 12, 10:20 AM, 108 users): 01 - First Notice.pdf, logged in Notices Sent."
+      "text": "15 Macs have upgraded (8 by Oct 7, 4 by Oct 13, 3 by Oct 14; see Upgraded Macs). None are on Geoff's lists. Confirm in Jamf that each shows macOS 26."
     },
     {
       "tone": "warn",
