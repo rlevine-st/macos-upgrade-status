@@ -97,13 +97,13 @@ a{color:var(--accent)}
      ===================================================================== -->
 <script id="data" type="application/json">
 {
-  "updated": "2026-10-14",
+  "updated": "2026-10-15",
   "deadline": "2026-12-01",
   "status": {
     "label": "15 of 123 Macs upgraded (8 by Oct 7, 4 by Oct 13, 3 by Oct 14). 108 to go.",
     "tone": "ok"
   },
-  "targetOS": "macOS 26 for the Macs on macOS 15. Once our macOS 27 production release is available (tentatively Oct 9), all upgrades and new builds go to 27 (Apple silicon…",
+  "targetOS": "macOS 26 (26.7.1) for the Macs on macOS 15. Macs already on macOS 26 are out of scope. See Upgrade Approach",
   "scope": {
     "total": 108
   },
@@ -204,10 +204,6 @@ a{color:var(--accent)}
     },
     {
       "tone": "warn",
-      "text": "macOS 27 — Oct 9 has passed; confirm whether the production release is available. Until then the target stays macOS 26.7.1."
-    },
-    {
-      "tone": "warn",
       "text": "Phil is confirming with leadership that RMO doesn't need to approve."
     }
   ],
@@ -253,13 +249,6 @@ a{color:var(--accent)}
       "done": false,
       "event": "Geoff's list requested \"by early next week\" (reply came Oct 12)",
       "owner": "Me"
-    },
-    {
-      "date": "2026-10-06",
-      "conf": "target",
-      "done": false,
-      "event": "\"Golden Gate Project\" (from handwritten notes — likely the macOS 27 effort; production build tentatively Oct 9; confirm)",
-      "owner": ""
     },
     {
       "date": "2026-10-08",
@@ -530,10 +519,6 @@ a{color:var(--accent)}
           "done": false
         },
         {
-          "t": "Clarify \"Golden Gate Project — Oct 6\"",
-          "done": true
-        },
-        {
           "t": "Provide fleet model list → filled in Hardware Requirements fleet tables",
           "done": true
         },
@@ -591,8 +576,6 @@ a{color:var(--accent)}
     }
   ],
   "questions": [
-    "macOS 27 production release date",
-    "\"Golden Gate Project — Oct 6\"",
     "Weekend escalation dates (Nov 1, Nov 15 are Sundays)",
     "What does \"~120\" refer to? (device count?)",
     "Daily updates (Dionne + Phil)",
