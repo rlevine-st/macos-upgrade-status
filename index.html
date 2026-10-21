@@ -100,7 +100,7 @@ a{color:var(--accent)}
   "updated": "2026-10-21",
   "deadline": "2026-12-01",
   "status": {
-    "label": "15 of 123 Macs upgraded (10 on macOS 26, 5 on a newer macOS than the target), plus 3…",
+    "label": "21 of 123 Macs have left the macOS 15 group (Oct 20): 15 upgraded (10 on macOS 26, 5 on a…",
     "tone": "ok"
   },
   "targetOS": "macOS 26 (26.7.1) for the Macs on macOS 15. Macs already on macOS 26 are out of scope. See Upgrade Approach",
@@ -189,20 +189,40 @@ a{color:var(--accent)}
       "buildsDone": 0,
       "buildsTotal": "TBD",
       "notes": "158 Oct 16: 105 still on macOS 15 (101 eligible + 4 not). 3 more left the group since Oct 14 ([device], [device], [device]);"
+    },
+    {
+      "date": "2026-10-21",
+      "upgradesDone": "15 confirmed (+3 decommissioned; 3 more left the group, not yet confirmed)",
+      "upgradesTotal": "123",
+      "buildsDone": 0,
+      "buildsTotal": "TBD",
+      "notes": "Oct 20: 102 still on macOS 15 (98 eligible + 4 not): 21 left the group since Sep 30. Oct 21 Jamf report: 98 eligible. 2nd notice list: 91 Macs / 89 users. Draft: Weekly Update - 2026-10-21 (Draft)"
     }
   ],
   "attention": [
     {
       "tone": "warn",
-      "text": "15 Macs have upgraded and 3 were decommissioned (see Upgraded Macs); 12 Jamf-confirmed Oct 15, [device]/[device]/[device] confirmed by Ryan Oct 16."
+      "text": "2nd notice is drafted and the list is on Box (2nd Notice). The updated list (Mac Computers Required to Upgrade to macos 26.xlsx: 91 Macs, 89 users) was uploaded to Box as a new version Oct 21."
     },
     {
       "tone": "warn",
-      "text": "Merle Reinhart's exception request — 2 Macs ([device], [device]) tied to the SOGS domain; being submitted. Hold both out of the upgrade until it's decided."
+      "text": "Manager notices (new dates): Mon Nov 2 (Dionne) and Mon Nov 16 (Phil). I still need a way to group users by manager (idea: the ServiceNow Users report joined to the Jamf list). Confirm Deb's role;"
     },
     {
       "tone": "warn",
-      "text": "Fix the Mac list — 5 unmatched asset tags ([device], [device], [device], [device], [device]) and the 111 vs 109 row count: macOS Upgrade -- Data Cross-Check."
+      "text": "Phil contacts Adam Riess, Maria Bertch and Marshall Perrin directly. They are left off the 2nd notice list."
+    },
+    {
+      "tone": "warn",
+      "text": "21 Macs have left the macOS 15 group (15 upgraded, 3 decommissioned, 3 not yet confirmed in Jamf); see Upgraded Macs. 5 of the upgraded went to a newer macOS than 26 ([device], [device], [device], [device], [device]);"
+    },
+    {
+      "tone": "warn",
+      "text": "Merle Reinhart's exception is approved (Oct 21) for [device] and [device]. Keep both off the upgrade list and out of the manager notices."
+    },
+    {
+      "tone": "warn",
+      "text": "Asset tags: [device] (Chen, AU019230), [device] (Marinelli, AU019340) and [device] (Postman, AU019361) are fixed, and [device] is no longer in the report. [device] (Koekemoer) is still open: Jamf has AU018718, which isn't in ALM;"
     },
     {
       "tone": "warn",
@@ -210,11 +230,11 @@ a{color:var(--accent)}
     },
     {
       "tone": "warn",
-      "text": "Chase 2 Macs with no check-in for 14+ days: [device] (Maria Bertch, retired?) and [device] (Brigette Hesman)."
+      "text": "Chase [device] (Brigette Hesman): no check-in since Jul 14, and she is on the 2nd notice list."
     },
     {
       "tone": "warn",
-      "text": "Oct 16 escalation (Dionne) — verify the manager list. The 4 Macs that can't run Tahoe have no replacement before Dec 1."
+      "text": "The 4 Macs that can't run Tahoe have no replacement before Dec 1."
     },
     {
       "tone": "warn",
@@ -308,30 +328,51 @@ a{color:var(--accent)}
     },
     {
       "date": "2026-10-16",
-      "conf": "confirmed",
+      "conf": "tbd",
       "done": false,
-      "event": "1st escalation email to managers",
+      "event": "~~1st escalation email to managers~~ Not sent: the first notice went out late, so the manager notices were rescheduled (Oct 21)",
       "owner": "Dionne"
     },
     {
-      "date": "2026-11-01",
+      "date": "2026-10-20",
       "conf": "confirmed",
-      "done": false,
-      "event": "2nd escalation email — lands on a Sunday; send Fri Oct 30 or Mon Nov 2?",
-      "owner": "Phil"
+      "done": true,
+      "event": "Talked with Dionne about the next email: it goes to managers, not to users",
+      "owner": "Me"
     },
     {
-      "date": "2026-11-15",
+      "date": "2026-10-21",
+      "conf": "confirmed",
+      "done": true,
+      "event": "2nd notice drafted (2nd Notice); updated Mac list uploaded to Box (91 Macs, 89 users); Merle's exception approved",
+      "owner": "Me"
+    },
+    {
+      "date": "2026-11-02",
       "conf": "confirmed",
       "done": false,
-      "event": "Final escalation email — Sunday; send Fri Nov 13 or Mon Nov 16?",
-      "owner": "Deb"
+      "event": "Manager notice (replaces Nov 1)",
+      "owner": "Dionne"
+    },
+    {
+      "date": "2026-11-16",
+      "conf": "confirmed",
+      "done": false,
+      "event": "Manager notice (replaces Nov 15)",
+      "owner": "Phil"
     },
     {
       "date": null,
       "conf": "tbd",
       "done": false,
       "event": "Assisted upgrades come through Generic Request. Loaner pool and offsite approach for users who ask for help",
+      "owner": "Me"
+    },
+    {
+      "date": null,
+      "conf": "tbd",
+      "done": false,
+      "event": "Send the 2nd notice to the remaining users (tells them the next notice goes to their managers)",
       "owner": "Me"
     },
     {
@@ -450,15 +491,39 @@ a{color:var(--accent)}
           "done": true
         },
         {
-          "t": "1st escalation to managers (Dionne)",
+          "t": "Draft the 2nd notice (2nd Notice)",
+          "done": true
+        },
+        {
+          "t": "Upload the updated Mac list to Box as a new version (91 Macs, 89 users)",
+          "done": true
+        },
+        {
+          "t": "Send the 2nd notice to the 89 users (pick a draft, fill in the KB link, set the date with Dionne)",
           "done": false
         },
         {
-          "t": "2nd escalation (Phil)",
+          "t": "Build the manager list: group users by manager (ServiceNow Users report + Jamf list) before Nov 2",
           "done": false
         },
         {
-          "t": "Final escalation (Deb)",
+          "t": "Phil: contact Adam Riess, Maria Bertch and Marshall Perrin directly",
+          "done": false
+        },
+        {
+          "t": "Confirm Deb's role now that the manager notices are Nov 2 (Dionne) and Nov 16 (Phil)",
+          "done": false
+        },
+        {
+          "t": "~~Oct 16 — 1st escalation to managers (Dionne)~~ replaced Oct 21 by the two manager notices below",
+          "done": true
+        },
+        {
+          "t": "Manager notice (Dionne)",
+          "done": false
+        },
+        {
+          "t": "Manager notice (Phil)",
           "done": false
         },
         {
@@ -470,11 +535,11 @@ a{color:var(--accent)}
           "done": false
         },
         {
-          "t": "Submit Merle Reinhart's exception request (2 Macs, SOGS domain) and hold them out",
-          "done": false
+          "t": "Merle Reinhart's exception request (2 Macs, SOGS domain) is approved; both Macs are held out of the upgrade list",
+          "done": true
         },
         {
-          "t": "Fix the 5 unmatched asset tags and the 111 vs 109 row count on the Mac list; hold out the 4 swaps (Oct 13–14)",
+          "t": "Mac list: asset tags fixed for Chen, Marinelli and Postman (Mickelson's Mac has left the report); Koekemoer's [device] is still open;",
           "done": false
         }
       ]
@@ -549,6 +614,31 @@ a{color:var(--accent)}
   ],
   "decisions": [
     {
+      "date": "2026-10-21",
+      "what": "The 2nd notice repeats the 1st notice's routes (Self Service KB0015329; Generic Request for assisted upgrades) and tells users the next notice goes to their manager",
+      "why": "Same approach Phil approved; gives users a heads-up before the manager notices"
+    },
+    {
+      "date": "2026-10-21",
+      "what": "Manager notices go out Mon Nov 2 (Dionne) and Mon Nov 16 (Phil), replacing Oct 16 (Dionne), Nov 1 (Phil) and Nov 15 (Deb)",
+      "why": "From Ryan's Oct 20 conversation with Dionne; the first notice went out late, and the new dates avoid weekends"
+    },
+    {
+      "date": "2026-10-21",
+      "what": "Adam Riess, Maria Bertch and Marshall Perrin are left off the 2nd notice list; Phil contacts each of them",
+      "why": "Phil will contact them directly"
+    },
+    {
+      "date": "2026-10-21",
+      "what": "Merle Reinhart's 2 SOGS-domain Macs are exempt from the upgrade",
+      "why": "Exception request approved"
+    },
+    {
+      "date": "2026-10-21",
+      "what": "The user list is rebuilt from each new Jamf report (corrected asset tags kept from the first-notice list) and uploaded to Box as a new version of the same file",
+      "why": "Users keep one stable link; Jamf asset tags have typos"
+    },
+    {
       "date": "2026-10-15",
       "what": "Macs that went past the target OS count as upgraded and compliant; they are listed separately in Upgraded Macs",
       "why": "Jamf confirmed 5 Macs on a newer macOS than 26; Ryan asked to note them"
@@ -562,41 +652,19 @@ a{color:var(--accent)}
       "date": "2026-10-12",
       "what": "First notice goes to users with Self Service (KB0015329) as the main route and a Generic Request for assisted upgrades; Pick a Time is not used",
       "why": "Matches Phil's \"self-service is the goal\"; reuses the existing request path"
-    },
-    {
-      "date": "2026-10-12",
-      "what": "Merle Reinhart's 2 SOGS-domain Macs are held out pending an exception request",
-      "why": "They are directly tied to the SOGS domain"
-    },
-    {
-      "date": "2026-10-12",
-      "what": "The 6 Intel Macs that top out at macOS 26 are upgraded to 26 this cycle rather than waiting for replacements",
-      "why": "Geoff raised no impediments; none are on the FY27 plan except where noted"
-    },
-    {
-      "date": "2026-10-12",
-      "what": "The 4 Macs swapped by build tickets (Oct 13–14) are held out of upgrades; Adam Riess removed from the list",
-      "why": "Their Macs are being replaced; Riess's Jamf record is stale"
-    },
-    {
-      "date": "2026-10-09",
-      "what": "The staff email comes from IT Services (itservices@stsci.edu) and includes the list of Macs and their users",
-      "why": "Phil's direction; the list is the Mac Computers Required to Upgrade to macOS 26 sheet"
-    },
-    {
-      "date": "2026-10-09",
-      "what": "Phil approved the Self Service KB",
-      "why": "Self Service is the primary upgrade route"
     }
   ],
   "questions": [
-    "Weekend escalation dates (Nov 1, Nov 15 are Sundays)",
     "What does \"~120\" refer to? (device count?)",
     "Daily updates (Dionne + Phil)",
     "Which 26.x should the upgrade install?",
     "Loaners and offsite users",
     "Self Service fallback",
-    "Macs that went past the target OS"
+    "Macs that went past the target OS",
+    "When does the 2nd notice go out?",
+    "How to group users by manager",
+    "Deb's role",
+    "Anton Koekemoer's asset tag ([device])"
   ],
   "links": []
 }
