@@ -206,7 +206,7 @@ a{color:var(--accent)}
     },
     {
       "tone": "warn",
-      "text": "Manager notices (new dates): Mon Nov 2 (Dionne) and Mon Nov 16 (Phil). I still need a way to group users by manager (idea: the ServiceNow Users report joined to the Jamf list). Confirm Deb's role;"
+      "text": "Manager notices (new dates): Mon Nov 2 (Dionne) and Mon Nov 16 (Phil). The manager list is built (89 users, 51 managers; Manager Notices);"
     },
     {
       "tone": "warn",
@@ -503,7 +503,11 @@ a{color:var(--accent)}
           "done": false
         },
         {
-          "t": "Build the manager list: group users by manager (ServiceNow Users report + Jamf list) before Nov 2",
+          "t": "Build the manager list: group users by manager (ServiceNow Users report, PDF export) before Nov 2 : Manager Notices",
+          "done": true
+        },
+        {
+          "t": "Manager notices: get the 51 managers' email addresses (Outlook Check Names or Manager > Email in the report), merge the 11 managers who are…",
           "done": false
         },
         {
@@ -639,6 +643,11 @@ a{color:var(--accent)}
       "why": "Users keep one stable link; Jamf asset tags have typos"
     },
     {
+      "date": "2026-10-21",
+      "what": "Manager list comes from the ServiceNow Users report exported as PDF, parsed into a manager-grouped list, and joined to the Jamf list by email (not User ID)",
+      "why": "ServiceNow won't export this report to CSV/XLSX or add it to a dashboard; the PDF has real text; User IDs and emails don't always match (e.g. ljs / lsmith@). See Manager Notices"
+    },
+    {
       "date": "2026-10-15",
       "what": "Macs that went past the target OS count as upgraded and compliant; they are listed separately in Upgraded Macs",
       "why": "Jamf confirmed 5 Macs on a newer macOS than 26; Ryan asked to note them"
@@ -647,11 +656,6 @@ a{color:var(--accent)}
       "date": "2026-10-15",
       "what": "Decommissioned Macs ([device], [device], [device]) are counted separately, not as upgrades",
       "why": "Ryan confirmed they were retired; tracked in History/upgrade_status.csv"
-    },
-    {
-      "date": "2026-10-12",
-      "what": "First notice goes to users with Self Service (KB0015329) as the main route and a Generic Request for assisted upgrades; Pick a Time is not used",
-      "why": "Matches Phil's \"self-service is the goal\"; reuses the existing request path"
     }
   ],
   "questions": [
@@ -662,7 +666,6 @@ a{color:var(--accent)}
     "Self Service fallback",
     "Macs that went past the target OS",
     "When does the 2nd notice go out?",
-    "How to group users by manager",
     "Deb's role",
     "Anton Koekemoer's asset tag ([device])"
   ],
