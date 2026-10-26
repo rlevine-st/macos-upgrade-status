@@ -100,7 +100,7 @@ a{color:var(--accent)}
   "updated": "2026-10-26",
   "deadline": "2026-12-01",
   "status": {
-    "label": "21 of 123 Macs have left the macOS 15 group (Oct 20): 15 upgraded (10 on macOS 26, 5 on a…",
+    "label": "29 of 123 Macs have left the macOS 15 group (Oct 26): 15 upgraded and confirmed, 3…",
     "tone": "ok"
   },
   "targetOS": "macOS 26 (26.7.1) for the Macs on macOS 15. Macs already on macOS 26 are out of scope. See Upgrade Approach",
@@ -191,48 +191,48 @@ a{color:var(--accent)}
       "buildsDone": 0,
       "buildsTotal": "TBD",
       "notes": "Oct 20: 102 still on macOS 15 (98 eligible + 4 not): 21 left the group since Sep 30. Oct 21 Jamf report: 98 eligible. 2nd notice list: 91 Macs / 89 users. Draft: Weekly Update - 2026-10-21 (Draft)"
+    },
+    {
+      "date": "2026-10-26",
+      "upgradesDone": "15 confirmed (+3 decommissioned; 11 more left the group, not yet confirmed)",
+      "upgradesTotal": "123",
+      "buildsDone": 0,
+      "buildsTotal": "TBD",
+      "notes": "Oct 26: 94 still on macOS 15 (90 eligible + 4 not): 29 left since Sep 30. Lists: Upgraded Macs, Replacement List."
     }
   ],
   "attention": [
     {
       "tone": "warn",
-      "text": "2nd notice is drafted and the list is on Box (2nd Notice). The updated list (Mac Computers Required to Upgrade to macos 26.xlsx: 91 Macs, 89 users) was uploaded to Box as a new version Oct 21."
+      "text": "Two lists are now maintained automatically: Upgraded Macs (who upgraded and about when) and Replacement List (old/new computers, asset tags, users, managers)."
     },
     {
       "tone": "warn",
-      "text": "Manager notices (new dates): Mon Nov 2 (Dionne) and Mon Nov 16 (Phil). The manager list is built (89 users, 51 managers; Manager Notices);"
+      "text": "11 Macs left the group but aren't confirmed in Jamf. Export the Jamf \"Completed upgrades\" list into the Inbox to confirm them."
     },
     {
       "tone": "warn",
-      "text": "Phil contacts Adam Riess, Maria Bertch and Marshall Perrin directly. They are left off the 2nd notice list."
+      "text": "The \"Not Eligible\" smart group wasn't re-exported; the 4 can't-upgrade Macs show Oct 7 check-ins. Export it into the Inbox to refresh."
     },
     {
       "tone": "warn",
-      "text": "21 Macs have left the macOS 15 group (15 upgraded, 3 decommissioned, 3 not yet confirmed in Jamf); see Upgraded Macs. 5 of the upgraded went to a newer macOS than 26 ([device], [device], [device], [device], [device]);"
+      "text": "Confirm the Oct 13–14 swaps ([device], [device], [device], [device]) and [device]: all still check in on macOS 15.8.1 as of Oct 26. Ask Geoff."
     },
     {
       "tone": "warn",
-      "text": "Merle Reinhart's exception is approved (Oct 21) for [device] and [device]. Keep both off the upgrade list and out of the manager notices."
+      "text": "Tag conflict: Morse's reserved AU020166 shows in use by Brett Morris in ALM (AU020165 is reserved for Morse). [device] left the group Oct 26: upgraded or swapped?"
     },
     {
       "tone": "warn",
-      "text": "Asset tags: [device] (Chen, AU019230), [device] (Marinelli, AU019340) and [device] (Postman, AU019361) are fixed, and [device] is no longer in the report. [device] (Koekemoer) is still open: Jamf has AU018718, which isn't in ALM;"
+      "text": "Managers missing for 19 people on the Replacement List: the Oct 21 ServiceNow export only covers the macOS 15 list. Run a ServiceNow users-by-manager report for those names."
     },
     {
       "tone": "warn",
-      "text": "Hold out 4 Macs being swapped Oct 13–14 ([device], [device], [device], [device]) and confirm Hoch's and Morse's reserved Macs with Geoff: macOS Upgrade -- Mac Replacements."
+      "text": "New Mac hostnames are blank until the new Macs show up in a Jamf export (matched by asset tag)."
     },
     {
       "tone": "warn",
-      "text": "Chase [device] (Brigette Hesman): no check-in since Jul 14, and she is on the 2nd notice list."
-    },
-    {
-      "tone": "warn",
-      "text": "The 4 Macs that can't run Tahoe have no replacement before Dec 1."
-    },
-    {
-      "tone": "warn",
-      "text": "Phil is confirming with leadership that RMO doesn't need to approve."
+      "text": "Still open from Oct 21: pick the 2nd notice draft and send date with Dionne; manager notices Mon Nov 2 (Dionne) and Mon Nov 16 (Phil); Phil contacts Riess, Bertch and Perrin;"
     }
   ],
   "timeline": [
