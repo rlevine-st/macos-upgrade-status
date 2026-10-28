@@ -100,8 +100,8 @@ a{color:var(--accent)}
   "updated": "2026-10-28",
   "deadline": "2026-12-01",
   "status": {
-    "label": "29 of 123 Macs have left the macOS 15 group (Oct 26): 25 upgraded (18 on macOS 26, 7 on…",
-    "tone": "ok"
+    "label": "30 of 123 Macs have left the macOS 15 group (Oct 28): 25 upgraded (18 on macOS 26, 7 on…",
+    "tone": "warn"
   },
   "targetOS": "macOS 26 (26.7.1) for the Macs on macOS 15. Macs already on macOS 26 are out of scope. See Upgrade Approach",
   "scope": {
@@ -199,6 +199,14 @@ a{color:var(--accent)}
       "buildsDone": 0,
       "buildsTotal": "TBD",
       "notes": "Oct 26: 94 still on macOS 15 (90 eligible + 4 not): 29 left since Sep 30. Lists: Upgraded Macs, Replacement List."
+    },
+    {
+      "date": "2026-10-28",
+      "upgradesDone": "25 confirmed (+4 decommissioned; 1 not yet confirmed)",
+      "upgradesTotal": "123",
+      "buildsDone": 0,
+      "buildsTotal": "TBD",
+      "notes": "Oct 28: 93 still on macOS 15 (89 eligible + 4 not): 30 left since Sep 30. Only 9 left the group in the last week (102 → 93) against ~20 a week needed."
     }
   ],
   "attention": [
@@ -208,11 +216,11 @@ a{color:var(--accent)}
     },
     {
       "tone": "warn",
-      "text": "All 29 Macs that left the group are now accounted for (25 upgraded, 4 decommissioned; you confirmed the last 11 on Oct 26). Exact versions are not recorded for those 11."
+      "text": "30 Macs have left the group; 29 are accounted for (25 upgraded, 4 decommissioned). [device] (Laura Watkins, left after Oct 26) still needs confirming: upgraded to which macOS, or decommissioned? Drop a Jamf \"Completed upgrades\"…"
     },
     {
       "tone": "warn",
-      "text": "The \"Not Eligible\" smart group wasn't re-exported; the 4 can't-upgrade Macs show Oct 7 check-ins. Export it into the Inbox to refresh."
+      "text": "The \"Not Eligible\" smart group wasn't re-exported; the 4 can't-upgrade Macs show Oct 7 check-ins (which is also why the auto-metrics table says 6 Macs with no check-in for 14+ days;"
     },
     {
       "tone": "warn",
@@ -232,7 +240,7 @@ a{color:var(--accent)}
     },
     {
       "tone": "warn",
-      "text": "Still open from Oct 21: pick the 2nd notice draft and send date with Dionne; manager notices Mon Nov 2 (Dionne) and Mon Nov 16 (Phil); Phil contacts Riess, Bertch and Perrin;"
+      "text": "Still open from Oct 21: confirm whether the 2nd notice has gone out (draft and send date with Dionne; 2nd Notice); manager notices Mon Nov 2 (Dionne) and Mon Nov 16 (Phil); Phil contacts Riess, Bertch and Perrin;"
     }
   ],
   "timeline": [
@@ -346,6 +354,13 @@ a{color:var(--accent)}
       "conf": "confirmed",
       "done": true,
       "event": "Send the 2nd notice to the remaining users",
+      "owner": "Me"
+    },
+    {
+      "date": "2026-10-28",
+      "conf": "confirmed",
+      "done": false,
+      "event": "Weekly update to Phil, 3pm (Weekly Update - 2026-10-28 (Draft))",
       "owner": "Me"
     },
     {
@@ -659,7 +674,7 @@ a{color:var(--accent)}
     "Loaners and offsite users",
     "Self Service fallback",
     "Macs that went past the target OS",
-    "When does the 2nd notice go out?",
+    "When does the 2nd notice go out, or has it?",
     "Deb's role",
     "Anton Koekemoer's asset tag ([device])"
   ],
