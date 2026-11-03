@@ -100,7 +100,7 @@ a{color:var(--accent)}
   "updated": "2026-11-03",
   "deadline": "2026-12-01",
   "status": {
-    "label": "30 of 123 Macs have left the macOS 15 group (Oct 28): 25 upgraded (18 on macOS 26, 7 on…",
+    "label": "35 of 123 Macs have left the macOS 15 group (Nov 3): 26 upgraded (19 on macOS 26, 7 on…",
     "tone": "warn"
   },
   "targetOS": "macOS 26 (26.7.1) for the Macs on macOS 15. Macs already on macOS 26 are out of scope. See Upgrade Approach",
@@ -207,40 +207,52 @@ a{color:var(--accent)}
       "buildsDone": 0,
       "buildsTotal": "TBD",
       "notes": "Oct 28: 93 still on macOS 15 (89 eligible + 4 not): 30 left since Sep 30. Only 9 left the group in the last week (102 → 93) against ~20 a week needed."
+    },
+    {
+      "date": "2026-11-03",
+      "upgradesDone": "26 confirmed (+4 decommissioned; 5 not yet confirmed)",
+      "upgradesTotal": "123",
+      "buildsDone": 0,
+      "buildsTotal": "TBD",
+      "notes": "Nov 3: 88 still on macOS 15 (84 eligible + 4 not): 35 left since Sep 30; 5 left since Oct 28. [device] (Marty Durkin) confirmed upgraded by his Oct 30 email, but only after installing 15.8.2 first (the…"
     }
   ],
   "attention": [
     {
       "tone": "warn",
-      "text": "Two lists are now maintained automatically: Upgraded Macs (who upgraded and about when) and Replacement List (old/new computers, asset tags, users, managers)."
+      "text": "New finding: install failure on macOS 15.8.1. Marty Durkin ([device], Oct 30) ran the Tahoe installer from 15.8.1, the Mac restarted and was still on 15.8.1 (several tries). Updating to 15.8.2 first, then Tahoe, worked."
     },
     {
       "tone": "warn",
-      "text": "30 Macs have left the group; 29 are accounted for (25 upgraded, 4 decommissioned). [device] (Laura Watkins, left after Oct 26) still needs confirming: upgraded to which macOS, or decommissioned? Drop a Jamf \"Completed upgrades\"…"
+      "text": "35 Macs have left the group; 30 are accounted for (26 upgraded, 4 decommissioned). 5 need confirming (upgraded to which macOS, or decommissioned?): [device] (Laura Watkins), [device] (Danielle Kirshenblat), [device] (Kielan…"
     },
     {
       "tone": "warn",
-      "text": "The \"Not Eligible\" smart group wasn't re-exported; the 4 can't-upgrade Macs show Oct 7 check-ins (which is also why the auto-metrics table says 6 Macs with no check-in for 14+ days;"
+      "text": "Pace is behind (amber): 102 on Oct 21, 88 on Nov 3, about 7 a week against ~22 needed. Some of the 88 are deliberately held out (Reinhart 2, Riess 3, Bertch, Perrin 2, swaps), so the actionable base is smaller."
     },
     {
       "tone": "warn",
-      "text": "Confirm the Oct 13–14 swaps ([device], [device], [device], [device]) and [device]: all still check in on macOS 15.8.1 as of Oct 26. Ask Geoff."
+      "text": "Confirm the Nov 2 manager notice (Dionne) went out, and whether the 2nd notice was sent (2nd Notice). Obsidian doesn't record either. Next: Mon Nov 16 (Phil). Refresh Manager Notices from the Nov 3 list first."
     },
     {
       "tone": "warn",
-      "text": "Tag conflict: Morse's reserved AU020166 shows in use by Brett Morris in ALM (AU020165 is reserved for Morse). [device] was decommissioned (confirmed Oct 26), so AU020166 is its replacement."
+      "text": "The \"Not Eligible\" smart group still isn't re-exported; the 4 can't-upgrade Macs show Oct 7 check-ins (so the \"no check-in 14d+\" count of 7 is inflated; [device] and [device] are really silent). Export it into the Inbox."
     },
     {
       "tone": "warn",
-      "text": "Managers missing for 19 people on the Replacement List: the Oct 21 ServiceNow export only covers the macOS 15 list. Run a ServiceNow users-by-manager report for those names."
+      "text": "Swaps: [device], [device], [device] and [device] still check in on macOS 15 ([device] and [device] on 15.8.2). [device] left the group (Hoch, reserved AU020212): in-place upgrade or swap? Ask Geoff."
     },
     {
       "tone": "warn",
-      "text": "New Mac hostnames are blank until the new Macs show up in a Jamf export (matched by asset tag)."
+      "text": "Managers missing for 19 people on the Replacement List; run a ServiceNow users-by-manager report and drop it in Attachments/Data/. New Mac hostnames stay blank until they appear in a Jamf export."
     },
     {
       "tone": "warn",
-      "text": "Still open from Oct 21: confirm whether the 2nd notice has gone out (draft and send date with Dionne; 2nd Notice); manager notices Mon Nov 2 (Dionne) and Mon Nov 16 (Phil); Phil contacts Riess, Bertch and Perrin;"
+      "text": "Status page isn't publishing (Oct 30: github.com didn't resolve; the watcher isn't loaded). Run ./automation.sh install and ./statuspage.sh run on your Mac."
+    },
+    {
+      "tone": "warn",
+      "text": "Still open: Phil contacts Riess, Bertch and Perrin; the 4 Macs that can't run Tahoe have no replacement before Dec 1; do the 7 users on macOS 27 need a message; [device] tag; chase [device]; Deb's role."
     }
   ],
   "timeline": [
@@ -359,7 +371,7 @@ a{color:var(--accent)}
     {
       "date": "2026-10-28",
       "conf": "confirmed",
-      "done": false,
+      "done": true,
       "event": "Weekly update to Phil, 3pm (Weekly Update - 2026-10-28 (Draft))",
       "owner": "Me"
     },
@@ -369,6 +381,13 @@ a{color:var(--accent)}
       "done": false,
       "event": "Manager notice (replaces Nov 1)",
       "owner": "Dionne"
+    },
+    {
+      "date": "2026-11-04",
+      "conf": "confirmed",
+      "done": false,
+      "event": "Weekly update to Phil, 3pm (Weekly Update - 2026-11-04 (Draft))",
+      "owner": "Me"
     },
     {
       "date": "2026-11-16",
@@ -532,7 +551,7 @@ a{color:var(--accent)}
           "done": true
         },
         {
-          "t": "Manager notice (Dionne)",
+          "t": "Manager notice (Dionne) (confirm it went out)",
           "done": false
         },
         {
@@ -676,7 +695,8 @@ a{color:var(--accent)}
     "Macs that went past the target OS",
     "When does the 2nd notice go out, or has it?",
     "Deb's role",
-    "Anton Koekemoer's asset tag ([device])"
+    "Anton Koekemoer's asset tag ([device])",
+    "Why did the direct 15.8.1 → Tahoe install fail for Marty Durkin (stayed on 15.8.1; worked after updating to 15.8.2)"
   ],
   "links": []
 }
