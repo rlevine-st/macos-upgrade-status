@@ -273,6 +273,10 @@ a{color:var(--accent)}
     {
       "tone": "warn",
       "text": "Still open: Phil contacts Riess, Bertch and Perrin; the 7 users on macOS 27; [device] tag; Deb's role."
+    },
+    {
+      "tone": "warn",
+      "text": "Dionne has left (Nov 13). Her project roles go to Phil for now: BCC on user notices and owner of her open items. GR002218 (Courtoux's reserved Mac) is assigned to her in ALM: have it reassigned."
     }
   ],
   "timeline": [
@@ -384,7 +388,7 @@ a{color:var(--accent)}
     {
       "date": "2026-10-21",
       "conf": "confirmed",
-      "done": true,
+      "done": false,
       "event": "Send the 2nd notice to the remaining users",
       "owner": "Me"
     },
@@ -400,7 +404,7 @@ a{color:var(--accent)}
       "conf": "confirmed",
       "done": false,
       "event": "Manager notice (replaces Nov 1)",
-      "owner": "Dionne"
+      "owner": "Dionne (left Nov 13)"
     },
     {
       "date": "2026-11-04",
@@ -428,6 +432,13 @@ a{color:var(--accent)}
       "conf": "tbd",
       "done": false,
       "event": "Weekly update to Phil, 3pm — confirm sent (no draft in the vault)",
+      "owner": "Me"
+    },
+    {
+      "date": "2026-11-13",
+      "conf": "confirmed",
+      "done": true,
+      "event": "Dionne Henricks has left the company; her open project items go to Phil",
       "owner": "Me"
     },
     {
@@ -575,7 +586,7 @@ a{color:var(--accent)}
           "done": true
         },
         {
-          "t": "Send the 2nd notice to the 89 users (pick a draft, fill in the KB link, set the date with Dionne) (Dionne's email to users, reported Nov 6,…",
+          "t": "Send the 2nd notice to the 89 users (pick a draft, fill in the KB link, set the date with Phil now that Dionne has left) (Dionne's email to…",
           "done": false
         },
         {
@@ -599,12 +610,16 @@ a{color:var(--accent)}
           "done": true
         },
         {
-          "t": "Manager notice (Dionne) (confirm it went out)",
+          "t": "Manager notice (Dionne) (confirm with Phil that it went out; Dionne has left)",
           "done": false
         },
         {
-          "t": "Dionne's email to the remaining users: managers will be contacted if they don't upgrade (reported; save a copy and record the send date)",
+          "t": "Dionne's email to the remaining users: managers will be contacted if they don't upgrade (reported;",
           "done": true
+        },
+        {
+          "t": "Have GR002218 (Courtoux's reserved Mac) reassigned in ALM: it is assigned to Dionne Henricks, who has left (Nov 13)",
+          "done": false
         },
         {
           "t": "Send the Slack reminder draft to Phil for approval (Slack Reminder)",
@@ -673,7 +688,7 @@ a{color:var(--accent)}
           "done": false
         },
         {
-          "t": "Daily update emails to Dionne + Phil (from Sep 22 kickoff notes) — confirm still expected",
+          "t": "Daily update emails to Phil (from Sep 22 kickoff notes; Dionne was on them until she left) — confirm still expected",
           "done": false
         }
       ]
@@ -705,6 +720,11 @@ a{color:var(--accent)}
     }
   ],
   "decisions": [
+    {
+      "date": "2026-11-13",
+      "what": "Dionne Henricks has left the company: she comes off the weekly-update cc and the BCC on user notices and templates (Phil takes the BCC), and her open project items go to Phil",
+      "why": "Ryan reported her departure Nov 13; Phil is the project's management contact"
+    },
     {
       "date": "2026-10-21",
       "what": "The 2nd notice repeats the 1st notice's routes (Self Service KB0015329; Generic Request for assisted upgrades) and tells users the next notice goes to their manager",
@@ -739,16 +759,11 @@ a{color:var(--accent)}
       "date": "2026-10-15",
       "what": "Macs that went past the target OS count as upgraded and compliant; they are listed separately in Upgraded Macs",
       "why": "Jamf confirmed 5 Macs on a newer macOS than 26; Ryan asked to note them"
-    },
-    {
-      "date": "2026-10-15",
-      "what": "Decommissioned Macs ([device], [device], [device]) are counted separately, not as upgrades",
-      "why": "Ryan confirmed they were retired; tracked in History/upgrade_status.csv"
     }
   ],
   "questions": [
     "What does \"~120\" refer to? (device count?)",
-    "Daily updates (Dionne + Phil)",
+    "Daily updates (to Phil; Dionne has left)",
     "Which 26.x should the upgrade install?",
     "Loaners and offsite users",
     "Self Service fallback",
