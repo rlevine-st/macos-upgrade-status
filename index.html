@@ -100,8 +100,8 @@ a{color:var(--accent)}
   "updated": "2026-11-13",
   "deadline": "2026-12-01",
   "status": {
-    "label": "35 of 123 Macs have left the macOS 15 group (Nov 4 report, unchanged from Nov 3): 26…",
-    "tone": "warn"
+    "label": "45 of 123 Macs have left the macOS 15 group (Nov 13 report): 26 upgraded confirmed (19 on…",
+    "tone": "bad"
   },
   "targetOS": "macOS 26 (26.7.1) for the Macs on macOS 15. Macs already on macOS 26 are out of scope. See Upgrade Approach",
   "scope": {
@@ -223,48 +223,56 @@ a{color:var(--accent)}
       "buildsDone": 0,
       "buildsTotal": "TBD",
       "notes": "Nov 4 report: same 88 Macs as Nov 3 (nobody left the group overnight); 27 days left, ~23 a week needed."
+    },
+    {
+      "date": "2026-11-13",
+      "upgradesDone": "26 confirmed (+4 decommissioned; 15 not yet confirmed)",
+      "upgradesTotal": "123",
+      "buildsDone": 0,
+      "buildsTotal": "TBD",
+      "notes": "Nov 13 report (\"74 Computers in RL - 15 Eligible Extended Report\" + 4 not eligible): 78 still on macOS 15, 45 of 123 left since Sep 30, 10 since Nov 4. 18 days left; ~31 a week needed vs ~8 actual."
     }
   ],
   "attention": [
     {
       "tone": "warn",
-      "text": "New spreadsheet: Remaining Upgrades by Manager.xlsx lists the 88 remaining Macs by manager and user (73 need upgrading; 11 held out/no manager on file; status column)."
+      "text": "Manager notice Mon Nov 16 (Phil), 3 days away. The list is ready: Remaining Upgrades by Manager.xlsx (78 Macs, 74 users, 43 managers; 63 Macs need upgrading;"
     },
     {
       "tone": "warn",
-      "text": "New finding: install failure on macOS 15.8.1. Marty Durkin ([device], Oct 30) ran the Tahoe installer from 15.8.1, the Mac restarted and was still on 15.8.1 (several tries). Updating to 15.8.2 first, then Tahoe, worked."
+      "text": "15 Macs left the group but aren't confirmed (10 new since Nov 4): [device], [device], [device], [device], [device], [device], [device], [device], [device], [device], plus the 5 older ones ([device], [device], [device], [device],…"
     },
     {
       "tone": "warn",
-      "text": "35 Macs have left the group; 30 are accounted for (26 upgraded, 4 decommissioned). 5 need confirming (upgraded to which macOS, or decommissioned?): [device] (Laura Watkins), [device] (Danielle Kirshenblat), [device] (Kielan…"
+      "text": "Pace is the risk (red): 102 on Oct 21, 78 on Nov 13, about 8 a week against ~31 needed for the last 18 days. Decide with Phil whether more is needed than the manager notice: assisted upgrade days, a Self Service push, or…"
     },
     {
       "tone": "warn",
-      "text": "Pace is behind (amber): 102 on Oct 21, 88 on Nov 3 and Nov 4, about 7 a week against ~23 needed. Some of the 88 are deliberately held out (Reinhart 2, Riess 3, Bertch, Perrin 2, swaps), so the actionable base is smaller."
+      "text": "Dec 1 enforcement planning is now due: advance notice to the Service Desk, the non-compliant list, NAC cert removal date (Sam W / Mark), and the 4 Macs that can't run Tahoe (no replacement before Dec 1;"
     },
     {
       "tone": "warn",
-      "text": "Dionne's email to users went out (reported Nov 6): the remaining users were told their managers will be contacted if they don't upgrade. Save a copy in Attachments/Documents/ and record the send date in 1st Notice Sent;"
+      "text": "Confirm these happened (not recorded in Obsidian): the Nov 11 weekly update to Phil; Phil's approval and posting of the Slack Reminder (target was Mon Nov 9); the Nov 2 manager notice (Dionne)."
     },
     {
       "tone": "warn",
-      "text": "The \"Not Eligible\" smart group still isn't re-exported; the 4 can't-upgrade Macs show Oct 7 check-ins (so the \"no check-in 14d+\" count of 7 is inflated; [device] and [device] are really silent). Export it into the Inbox."
+      "text": "15.8.2 prerequisite: 48 of the 78 Macs are still below 15.8.2 (46 on 15.8.1, 2 on 15.7.7); 12 are already on 15.8.3. KB0015329 and the Self Service description still need the \"update macOS 15 first\" step;"
     },
     {
       "tone": "warn",
-      "text": "Swaps: [device], [device], [device] and [device] still check in on macOS 15 ([device] and [device] on 15.8.2). [device] left the group (Hoch, reserved AU020212): in-place upgrade or swap? Ask Geoff."
+      "text": "Swaps: [device], [device], [device] and [device] are still on macOS 15 a month after their build tickets were due (Oct 13–14). Ask Geoff; [device] left the group (upgraded or swapped?)."
     },
     {
       "tone": "warn",
-      "text": "Managers missing for 19 people on the Replacement List; run a ServiceNow users-by-manager report and drop it in Attachments/Data/. New Mac hostnames stay blank until they appear in a Jamf export."
+      "text": "The \"Not Eligible\" group still isn't re-exported (the 4 can't-upgrade Macs show stale check-ins); [device] and [device] are really silent. 19 managers are missing on the Replacement List;"
     },
     {
       "tone": "warn",
-      "text": "Status page isn't publishing (Oct 30: github.com didn't resolve; the watcher isn't loaded). Run ./automation.sh install and ./statuspage.sh run on your Mac."
+      "text": "Process: the agent is uninstalled; run Run Sweep.command after each export (the status page needs ./statuspage.sh run by hand and has not published since Oct 30)."
     },
     {
       "tone": "warn",
-      "text": "Still open: Phil contacts Riess, Bertch and Perrin; the 4 Macs that can't run Tahoe have no replacement before Dec 1; do the 7 users on macOS 27 need a message; [device] tag; chase [device]; Deb's role."
+      "text": "Still open: Phil contacts Riess, Bertch and Perrin; the 7 users on macOS 27; [device] tag; Deb's role."
     }
   ],
   "timeline": [
@@ -412,7 +420,14 @@ a{color:var(--accent)}
       "date": "2026-11-09",
       "conf": "tbd",
       "done": false,
-      "event": "Slack reminder in the Mac general channel, after Phil approves (Slack Reminder)",
+      "event": "Slack reminder in the Mac general channel, after Phil approves (Slack Reminder) — confirm approved/posted",
+      "owner": "Me"
+    },
+    {
+      "date": "2026-11-11",
+      "conf": "tbd",
+      "done": false,
+      "event": "Weekly update to Phil, 3pm — confirm sent (no draft in the vault)",
       "owner": "Me"
     },
     {
@@ -421,6 +436,13 @@ a{color:var(--accent)}
       "done": false,
       "event": "Manager notice (replaces Nov 15)",
       "owner": "Phil"
+    },
+    {
+      "date": "2026-11-18",
+      "conf": "confirmed",
+      "done": false,
+      "event": "Weekly update to Phil, 3pm (draft Tue afternoon: ./automation.sh draft)",
+      "owner": "Me"
     },
     {
       "date": null,
