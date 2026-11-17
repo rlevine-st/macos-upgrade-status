@@ -97,7 +97,7 @@ a{color:var(--accent)}
      ===================================================================== -->
 <script id="data" type="application/json">
 {
-  "updated": "2026-11-16",
+  "updated": "2026-11-17",
   "deadline": "2026-12-01",
   "status": {
     "label": "45 of 123 Macs have left the macOS 15 group (Nov 16 report, no change since Nov 13): 26…",
@@ -732,6 +732,11 @@ a{color:var(--accent)}
   ],
   "decisions": [
     {
+      "date": "2026-11-17",
+      "what": "The manager workbook sent to Phil is one worksheet only -- Outstanding upgrades, one row per Mac -- without Last check-in, Days since check-in, Escalated by and Date escalated.",
+      "why": "Phil's email of Nov 17: it is the only sheet he uses and the rest is \"just extra work\". Keeping --full preserves the Email lines paste-ready address tab for future mass-mail rounds"
+    },
+    {
       "date": "2026-11-13",
       "what": "Dionne Henricks has left the company: she comes off the weekly-update cc and the BCC on user notices and templates (Phil takes the BCC), and her open project items go to Phil",
       "why": "Ryan reported her departure Nov 13; Phil is the project's management contact"
@@ -765,11 +770,6 @@ a{color:var(--accent)}
       "date": "2026-10-21",
       "what": "Manager list comes from the ServiceNow Users report exported as PDF, parsed into a manager-grouped list, and joined to the Jamf list by email (not User ID)",
       "why": "ServiceNow won't export this report to CSV/XLSX or add it to a dashboard; the PDF has real text; User IDs and emails don't always match (e.g. ljs / lsmith@). See Manager Notices"
-    },
-    {
-      "date": "2026-10-15",
-      "what": "Macs that went past the target OS count as upgraded and compliant; they are listed separately in Upgraded Macs",
-      "why": "Jamf confirmed 5 Macs on a newer macOS than 26; Ryan asked to note them"
     }
   ],
   "questions": [
