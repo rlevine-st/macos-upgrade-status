@@ -295,14 +295,14 @@ a{color:var(--accent)}
       "date": "2026-09-01",
       "conf": "confirmed",
       "done": true,
-      "event": "Email mac_upgrade group (non-compliant users) re: Dec 1 deadline + spreadsheet of impacted systems/users; brief Service Desk at 8:45 meeting + email ITSD_ITSS",
+      "event": "Email non-compliant users (BCC) re: Dec 1 deadline + spreadsheet of impacted systems/users; brief Service Desk at 8:45 meeting + email ITSD_ITSS",
       "owner": ""
     },
     {
       "date": "2026-09-15",
       "conf": "confirmed",
       "done": true,
-      "event": "2nd email to mac_upgrade: self-upgrade or schedule assisted upgrade via Generic Request",
+      "event": "2nd email to non-compliant users (BCC): self-upgrade or schedule assisted upgrade via Generic Request",
       "owner": ""
     },
     {
@@ -585,7 +585,7 @@ a{color:var(--accent)}
           "done": true
         },
         {
-          "t": "Email mac_upgrade after draft approval (include impacted-systems spreadsheet)",
+          "t": "Email non-compliant users (BCC) after draft approval (include impacted-systems spreadsheet)",
           "done": true
         },
         {
@@ -593,7 +593,7 @@ a{color:var(--accent)}
           "done": true
         },
         {
-          "t": "2nd reminder email to mac_upgrade",
+          "t": "2nd reminder email to non-compliant users (BCC)",
           "done": true
         },
         {
@@ -682,7 +682,7 @@ a{color:var(--accent)}
           "done": true
         },
         {
-          "t": "Update mac_upgrade group with remaining non-compliant staff and their managers",
+          "t": "~~Update mac_upgrade group with remaining non-compliant staff and their managers~~ — dropped Nov 18: the DL is not used.",
           "done": true
         },
         {
@@ -690,7 +690,7 @@ a{color:var(--accent)}
           "done": true
         },
         {
-          "t": "Email mac_upgrade: access removed — template: Non_compliant_restore_email",
+          "t": "Email the affected users (BCC): access removed — template: Non_compliant_restore_email",
           "done": false
         },
         {
@@ -740,6 +740,11 @@ a{color:var(--accent)}
   ],
   "decisions": [
     {
+      "date": "2026-11-18",
+      "what": "The mac_upgrade distribution list is not used for project notices. Mass notices to users go out with the recipients in BCC, built from the current Jamf export;",
+      "why": "Ryan, Nov 18: this is what was actually done. DL membership does not track the Jamf group, and the group changes every week, so a list built from the export is the only one that matches the devices…"
+    },
+    {
       "date": "2026-11-17",
       "what": "The manager workbook sent to Phil is one worksheet only -- Outstanding upgrades, one row per Mac -- without Last check-in, Days since check-in, Escalated by and Date escalated.",
       "why": "Phil's email of Nov 17: it is the only sheet he uses and the rest is \"just extra work\". Keeping --full preserves the Email lines paste-ready address tab for future mass-mail rounds"
@@ -773,11 +778,6 @@ a{color:var(--accent)}
       "date": "2026-10-21",
       "what": "Merle Reinhart's 2 SOGS-domain Macs are exempt from the upgrade",
       "why": "Exception request approved"
-    },
-    {
-      "date": "2026-10-21",
-      "what": "The user list is rebuilt from each new Jamf report (corrected asset tags kept from the first-notice list) and uploaded to Box as a new version of the same file",
-      "why": "Users keep one stable link; Jamf asset tags have typos"
     }
   ],
   "questions": [
